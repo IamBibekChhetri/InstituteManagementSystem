@@ -26,19 +26,7 @@
                             </div>
                         @endif
                         
-                        <!-- .form-group -->
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-batch">Course Code:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-batch" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($course as $courses) 
-                            <option value="{{$courses->id}}">{{$courses->code}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-                      
-
-
+                       
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
@@ -65,62 +53,6 @@
                         </div><!-- /.form-group -->
                  
 
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-studentphoto">Student Photo:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-studentphoto" class="form-control" name="student_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($student as $students)
-                              <option value="{{$students->id}}">{{$students->photo}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-                       
-
-
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-studentPhone">Student Phone:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-studentPhone" class="form-control" name="student_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($student as $students)
-                              <option value="{{$students->id}}">{{$students->phone}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-                       
-
-
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-studentAddress">Student Address:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-studentAddress" class="form-control" name="student_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($student as $students)
-                              <option value="{{$students->id}}">{{$students->address}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-                       
-
-
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-studentEmail">Student Email:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-studentEmail" class="form-control" name="student_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($student as $students)
-                              <option value="{{$students->id}}">{{$students->email}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-                       
-
-                       
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>
