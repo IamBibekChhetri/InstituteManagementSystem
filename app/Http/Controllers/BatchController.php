@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\course;
-use App\Models\batch;
+use App\Models\Course;
+use App\Models\Batch;
 use Illuminate\Http\Request;
 
 class BatchController extends Controller
@@ -16,7 +16,7 @@ class BatchController extends Controller
     public function index()
     {
         $i = 1;
-        $batch = batch::all();
+        $batch = Batch::all();
         return view('admin.batch.index',compact('i','batch'));
     }
 
@@ -27,7 +27,7 @@ class BatchController extends Controller
      */
     public function create()
     {
-        $course = course::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
         return view('admin.batch.create',compact('course'));
     }
 
@@ -40,11 +40,11 @@ class BatchController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            
+            'course_id' => ['required'],
             'name' => ['required', 'unique:batches'],
-            'code' => ['required', 'unique:batches'],
+            'code' => ['required', 'unique:batches'],            
         ]);
-        $batch = batch::create($request->all());
+        $batch = Batch::create($request->all());
         return redirect()->route('batch.index')
             ->with('success','Batch created successfully.');
     }
@@ -52,24 +52,24 @@ class BatchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\batch  $batch
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function show(batch $batch)
+    public function show(Batch $batch)
     {
-        $course = course::all();
+        $course = Course::all();
         return view('admin.batch.store',compact('batch','course'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\batch  $batch
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function edit(batch $batch)
+    public function edit(Batch $batch)
     {
-        $course = course::all();
+        $course = Course::all();
         return view('admin.batch.edit',compact('batch','course'));
     }
 
@@ -77,11 +77,17 @@ class BatchController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\batch  $batch
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, batch $batch)
+    public function update(Request $request, Batch $batch)
     {
+        $validated = $request->validate([
+            'course_id' => ['required'],
+            'name' => ['required', 'unique:batches'],
+            'code' => ['required', 'unique:batches'],            
+        ]);
+        
         $batch->update($request->all());
         return redirect()->route('batch.index')
             ->with('success','Batch Updated successfully.');
@@ -90,10 +96,10 @@ class BatchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\batch  $batch
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function destroy(batch $batch)
+    public function destroy(Batch $batch)
     {
         $batch->delete();
        
@@ -105,7 +111,7 @@ class BatchController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = batch::find($id);
+        $status = Batch::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('batch.index')
@@ -114,7 +120,7 @@ class BatchController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = batch::find($id);
+        $status = Batch::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('batch.index')

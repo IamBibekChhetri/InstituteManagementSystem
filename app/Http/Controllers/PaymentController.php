@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student;
-use App\Models\payment;
+use App\Models\Student;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -16,7 +16,7 @@ class PaymentController extends Controller
     public function index()
     {
         $i = 1;
-        $payment = payment::all();
+        $payment = Payment::all();
         return view('admin.payment.index', compact('i','payment'));
     }
 
@@ -27,7 +27,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        $student = student::whereStatus('on')->get();
+        $student = Student::whereStatus('on')->get();
         return view('admin.payment.create',compact('student'));
     }
 
@@ -41,12 +41,13 @@ class PaymentController extends Controller
     {
         $validated = $request->validate([
             
+            'student_id' => ['required' ],
             'payed' => ['required' ],
             'payment' => ['required' ],
             'transaction' => ['required', 'unique:payments'],
         ]);
         
-        $payment = payment::create($request->all());
+        $payment = Payment::create($request->all());
         return redirect()->route('payment.index')
             ->with('success','Payment created successfully.');
     }
@@ -54,24 +55,24 @@ class PaymentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\payment  $payment
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function show(payment $payment)
+    public function show(Payment $payment)
     {
-        $student = student::all();
+        $student = Student::all();
         return view('admin.payment.show',compact('payment','student'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\payment  $payment
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function edit(payment $payment)
+    public function edit(Payment $payment)
     {
-        $student = student::whereStatus('on')->get();
+        $student = Student::whereStatus('on')->get();
         return view('admin.payment.edit',compact('payment','student'));
     }
 
@@ -79,11 +80,19 @@ class PaymentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\payment  $payment
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, payment $payment)
+    public function update(Request $request, Payment $payment)
     {
+        $validated = $request->validate([
+            
+            'student_id' => ['required' ],
+            'payed' => ['required' ],
+            'payment' => ['required' ],
+            'transaction' => ['required', 'unique:payments'],
+        ]);
+        
         $payment->update($request->all());
         return redirect()->route('payment.index')
             ->with('success','Payment Updated successfully.');
@@ -92,10 +101,10 @@ class PaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\payment  $payment
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(payment $payment)
+    public function destroy(Payment $payment)
     {
         $payment->delete();
        
@@ -108,7 +117,7 @@ class PaymentController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = payment::find($id);
+        $status = Payment::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('payment.index')
@@ -117,7 +126,7 @@ class PaymentController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = payment::find($id);
+        $status = Payment::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('payment.index')

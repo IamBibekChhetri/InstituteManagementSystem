@@ -15,7 +15,7 @@
                       <!-- .fieldset -->
                       <div class="form-row">
                         <legend>Instructor Manage</legend> <!-- .form-group -->
-                                                
+                        <div class="col-md-8 mb-3">                     
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -26,19 +26,19 @@
                             </div>
                         @endif
 
-                        
+                        </div>
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Instructor Name:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Instructor Name">
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label for="tf2">Age:</label>  <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="age">
+                            <input type="number" class="form-control" id="tf2" name="age" placeholder="Enter Instructor Age">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -46,14 +46,14 @@
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Instructor Address:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="address">
+                          <input type="text" class="form-control" id="tfDefault" name="address" placeholder="Enter Instructor Address">
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label for="tf2">Phone:</label>  <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="phone">
+                            <input type="number" class="form-control" id="tf2" name="phone" placeholder="Enter Instructor Phone">
                           </div>
                         </div><!-- /.form-group -->
 
@@ -70,7 +70,7 @@
 
                         <div class="col-md-4 mb-3">
                            <span>Email</span>  <abbr title="Required">*</abbr>
-                            <input type="email" class="form-control" id="fl1" placeholder="Email address" required="" name="email">
+                            <input type="email" class="form-control" id="fl1" placeholder="Email address" placeholder="Enter Email" required="" name="email">
                           
                         </div><!-- /.form-group -->
 

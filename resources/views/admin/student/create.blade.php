@@ -15,6 +15,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Student Manage</legend> <!-- .form-group -->
+                        <div class="col-md-8 mb-3">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -24,13 +25,13 @@
                                 </ul>
                             </div>
                         @endif
-                       
+                      </div>
 
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Student Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Student Name" name="name">
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
@@ -49,28 +50,28 @@
                         <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">Date Of Birth:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="date" class="form-control" id="tfDefault" name="DOB">
+                          <input type="date" class="form-control" id="tfDefault"  name="DOB">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-4 mb-3">
                           <label class="col-form-label" for="tfDefault">Father Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="father">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Father Name" name="father">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-4 mb-3">
                           <label class="col-form-label" for="tfDefault">Mother Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="mother">
+                          <input type="text" class="form-control" id="tfDefault" name="mother" placeholder="Enter Mother Name">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-4 mb-3">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control"  name="phone">
+                            <input type="number" class="form-control"  name="phone" placeholder="Enter Student Phone NO">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -78,38 +79,38 @@
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Address:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="address">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Student Address" name="address">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">State</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="state">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="state">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">City</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="city">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="city">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">Zip Code</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="zipcode">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="zipcode">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">Nationality</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="nationality">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="nationality">
                         </div><!-- /.form-group -->
 
 
                          <!-- .form-group -->
                          <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">Qualification</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="qualification">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Qualification" name="qualification">
                         </div><!-- /.form-group -->
                         
                          <!-- .form-group -->

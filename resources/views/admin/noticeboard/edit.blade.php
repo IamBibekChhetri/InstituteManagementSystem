@@ -16,6 +16,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Noticeboard Adding Form</legend> <!-- .form-group -->
+                        <div class="col-md-8 mb-3">
                         @if ($errors->any())
                               <div class="alert alert-danger">
                                   <ul>
@@ -25,16 +26,17 @@
                                   </ul>
                               </div>
                           @endif
+                        </div>
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Notice Title:</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="title" value="{{$noticeboard->title}}">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Notice Title" name="title" value="{{$noticeboard->title}}">
                         </div><!-- /.form-group -->                       
                         
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label for="tf6">Description</label>
-                          <textarea class="form-control" id="tf6" rows="2" name="description">{{$noticeboard->description}}</textarea>
+                          <textarea class="form-control" id="tf6" rows="2" placeholder="About Notice..." name="description">{{$noticeboard->description}}</textarea>
                         </div><!-- /.form-group -->
 
 
@@ -68,10 +70,7 @@
                         </div><!-- /.form-group -->
                         
                            
-                        <div class="col-md-12 mb-3">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" value="$noticeboard->status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
+                        
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>

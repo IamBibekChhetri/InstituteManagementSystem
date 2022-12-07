@@ -13,11 +13,11 @@
                     <form action="{{route('author.update',$author->id)}}" method="POST">
                         @csrf
                         @method('PUT')
-                      <!-- .fieldset -->
+                      <!-- .Row -->
                       <div class="row">
                         <legend>Author Manage</legend> <!-- .form-group -->
                         
-                                               
+                        <div class="col-md-8 mb-3">                    
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -27,8 +27,7 @@
                                 </ul>
                             </div>
                         @endif
-
-                        
+                        </div>
                         
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
@@ -36,11 +35,8 @@
                           <input type="text" class="form-control" id="tfDefault" name="name" value="{{$author->name}}">
                         </div><!-- /.form-group -->
   
-                        <div class="col-md-6 mb-3">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" value="{{$author->status}}" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
-                      </fieldset><!-- /.fieldset -->
+                       
+                      </div><!-- /.Row -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>

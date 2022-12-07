@@ -16,7 +16,7 @@
                       <fieldset>
                         <legend>Author Manage</legend> <!-- .form-group -->
                         
-                        
+                        <div class="col-md-8 mb-3"> 
                         @if ($errors->any())
                           <div class="alert alert-danger">
                               <ul>
@@ -26,12 +26,12 @@
                               </ul>
                           </div>
                         @endif
-                        
+                        </div>
                         <!-- .form-group -->
                         <div class="col-md-8 mb-3">
                         <label for="author">Author Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder=" Enter Author Name">
                         </div><!-- /.form-group -->
   
                         <div class="col-md-6 mb-3">                            

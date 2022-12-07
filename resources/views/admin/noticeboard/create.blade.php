@@ -15,6 +15,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Noticeboard Adding Form</legend> <!-- .form-group -->
+                        <div class="col-md-8 mb-3">
                         @if ($errors->any())
                               <div class="alert alert-danger">
                                   <ul>
@@ -24,18 +25,19 @@
                                   </ul>
                               </div>
                           @endif
+                          </div>
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Notice Title:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="title">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Notice Title" name="title">
                         </div><!-- /.form-group -->                       
                         
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label for="tf6">Description</label>
                           <abbr title="Required">*</abbr>
-                          <textarea class="form-control" id="tf6" rows="2" name="description"></textarea>
+                          <textarea class="form-control" id="tf6" rows="2" name="description" placeholder="About Notice..."></textarea>
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->

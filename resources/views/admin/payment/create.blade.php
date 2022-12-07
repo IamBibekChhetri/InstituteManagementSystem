@@ -14,6 +14,7 @@
                     @csrf
                       <!-- .fieldset -->
                       <div class="row">
+                      <div class="col-md-8 mb-3">
                         <legend>Payment Adding Form</legend> <!-- .form-group -->
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -24,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-
+                      </div>
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-student">Student Name:</label> 
@@ -41,7 +42,7 @@
                           <label for="tf2">Payed Amount</label>
                           <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="payed">
+                            <input type="number" class="form-control" placeholder="Enter Payed Amount" id="tf2" name="payed">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -49,7 +50,7 @@
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="selDefault">Payment Method:</label>
                           <abbr title="Required">*</abbr>
-                           <select class="custom-select" id="selDefault" name="payment">
+                           <select class="custom-select" id="selDefault" placeholder="Enter Payment Method" name="payment">
                             <option> Esewa</option>
                             <option>Khalti</option>
                             <option> Phone Pay</option>

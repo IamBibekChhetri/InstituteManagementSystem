@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\noticeboard;
+use App\Models\Noticeboard;
 use Illuminate\Http\Request;
 
 class NoticeboardController extends Controller
@@ -15,7 +15,7 @@ class NoticeboardController extends Controller
     public function index()
     {
         $i = 1;
-        $noticeboard = noticeboard::all();
+        $noticeboard = Noticeboard::all();
         return view('admin.noticeboard.index', compact('i','noticeboard'));
     }
 
@@ -41,13 +41,14 @@ class NoticeboardController extends Controller
             
             'title' => ['required'],
             'priority' => ['required'],
+            'attachment' => ['required'],
             'start' => ['required'],
             'end' => ['required'],
         ]);
 
         $image = time().'.'.$request->file('attachement')->getClientOriginalExtension();
         move_uploaded_file($request->attachement, 'public/image/'.$image);
-        $noticeboard= noticeboard::create($request->all());
+        $noticeboard= Noticeboard::create($request->all());
         $noticeboard->attachement = $image;
         $noticeboard->save();        
         return redirect()->route('noticeboard.index')
@@ -57,10 +58,10 @@ class NoticeboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\noticeboard  $noticeboard
+     * @param  \App\Models\Noticeboard  $noticeboard
      * @return \Illuminate\Http\Response
      */
-    public function show(noticeboard $noticeboard)
+    public function show(Noticeboard $noticeboard)
     {
         return view('admin.noticeboard.show',compact('noticeboard'));
     }
@@ -68,10 +69,10 @@ class NoticeboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\noticeboard  $noticeboard
+     * @param  \App\Models\Noticeboard  $noticeboard
      * @return \Illuminate\Http\Response
      */
-    public function edit(noticeboard $noticeboard)
+    public function edit(Noticeboard $noticeboard)
     {
         return view('admin.noticeboard.edit',compact('noticeboard'));
     }
@@ -80,11 +81,18 @@ class NoticeboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\noticeboard  $noticeboard
+     * @param  \App\Models\Noticeboard  $noticeboard
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, noticeboard $noticeboard)
+    public function update(Request $request, Noticeboard $noticeboard)
     {
+        $validated = $request->validate([
+            
+            'title' => ['required'],
+            'priority' => ['required'],
+            'start' => ['required'],
+            'end' => ['required'],
+        ]);
         if ($request->hasFile('attachement')){
             $imageName = time().'.'.$request->file('attachement')->getClientOriginalExtension();
         unlink('public/image/'.$noticeboard->attachement);
@@ -106,10 +114,10 @@ class NoticeboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\noticeboard  $noticeboard
+     * @param  \App\Models\Noticeboard  $noticeboard
      * @return \Illuminate\Http\Response
      */
-    public function destroy(noticeboard $noticeboard)
+    public function destroy(Noticeboard $noticeboard)
     {
         $noticeboard->delete();
        
@@ -122,7 +130,7 @@ class NoticeboardController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = noticeboard::find($id);
+        $status = Noticeboard::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('noticeboard.index')
@@ -131,7 +139,7 @@ class NoticeboardController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = noticeboard::find($id);
+        $status = Noticeboard::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('noticeboard.index')

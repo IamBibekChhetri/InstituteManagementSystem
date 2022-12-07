@@ -2,46 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
-use App\Models\Course;
 use App\Models\Batch;
-use App\Models\Subject;
-use App\Models\Author;
-use App\Models\Book;
-use App\Models\Fee;
-use App\Models\Payment;
+use App\Models\Student;
 use App\Models\Instructor;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class BranchController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $student = Student::count();
-        $courses = Course::count();
-        $batch = Batch::count();
-        $subject = Subject::count();
-        $author = Author::count();
-        $book = Book::count();
-        $fee = Fee::count();
-        $payment = Payment::count();
-        $instructor = Instructor::count();
-        return view('admin.dashboard',compact('student','courses','batch','subject','author','book','fee','payment','instructor'));
+    {
+        //
     }
 
     /**
@@ -68,10 +44,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(branch $branch)
     {
         //
     }
@@ -79,10 +55,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(branch $branch)
     {
         //
     }
@@ -91,10 +67,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, branch $branch)
     {
         //
     }
@@ -102,10 +78,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(branch $branch)
     {
         //
     }

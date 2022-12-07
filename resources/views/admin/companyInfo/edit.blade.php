@@ -45,20 +45,20 @@
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Company Name</label>  <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="cname" value="{{$company->cname}}">
+                          <input type="text" class="form-control" id="tfDefault" name="cname" placeholder="Enter Company Name" value="{{$company->cname}}">
                         </div><!-- /.form-group -->
                       
 
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Representative Name</label>  <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="rname" value="{{$company->rname}}">
+                          <input type="text" class="form-control" id="tfDefault" name="rname" placeholder="Enter Comapany Representative Name" value="{{$company->rname}}">
                         </div><!-- /.form-group -->
                       
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Address:</label>  <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="address" value="{{$company->address}}">
+                          <input type="text" class="form-control" id="tfDefault" name="address" placeholder="Enter Company Address" value="{{$company->address}}">
                         </div><!-- /.form-group -->
 
                         
@@ -66,7 +66,7 @@
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Pan No:</label>  <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="address" value="{{$company->pan}}">
+                          <input type="text" class="form-control" id="tfDefault" name="pan" placeholder="Enter pan/ vat Number" value="{{$company->pan}}">
                         </div><!-- /.form-group -->
 
                         
@@ -74,7 +74,7 @@
                         <div class="col-md-6 mb-3">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number"> 
-                            <input type="number" class="form-control"  name="phone" value="{{$company->phone}}">
+                            <input type="number" class="form-control"  name="phone" placeholder="Enter Company Phone Number" value="{{$company->phone}}">
                           </div>
                         </div><!-- /.form-group -->
                         

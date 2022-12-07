@@ -82,6 +82,11 @@ class UserRoleController extends Controller
      */
     public function update(Request $request, User_role $user_role)
     {
+        $validated = $request->validate([
+            
+            'role' => ['required', 'unique:user_roles'],
+        ]);
+        
         $user_role->update($request->all());
         return redirect()->route('user_role.index')
             ->with('success','User Role Updated successfully.');

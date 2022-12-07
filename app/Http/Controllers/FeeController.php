@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\course;
-use App\Models\fee;
+use App\Models\Course;
+use App\Models\Fee;
 use Illuminate\Http\Request;
 
 class FeeController extends Controller
@@ -16,7 +16,7 @@ class FeeController extends Controller
     public function index()
     {
         $i = 1;
-        $fee = fee::all();
+        $fee = Fee::all();
         return view('admin.fee.index',compact('i','fee'));
     }
 
@@ -27,7 +27,7 @@ class FeeController extends Controller
      */
     public function create()
     {
-        $course = course::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
         return view('admin.fee.create',compact('course'));
     }
 
@@ -40,12 +40,13 @@ class FeeController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            
+
+            'course_id' => ['required'],
             'amount' => ['required'],
             
         ]);
 
-        $fee = fee::create($request->all());
+        $fee = Fee::create($request->all());
         return redirect()->route('fee.index')
             ->with('success','Fee created successfully.');
     }
@@ -53,10 +54,10 @@ class FeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function show(fee $fee)
+    public function show(Fee $fee)
     {
        
     }
@@ -64,12 +65,12 @@ class FeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function edit(fee $fee)
+    public function edit(Fee $fee)
     {
-        $course = course::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
         return view('admin.fee.edit',compact('fee','course'));
     }
 
@@ -77,11 +78,18 @@ class FeeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, fee $fee)
+    public function update(Request $request, Fee $fee)
     {
+        $validated = $request->validate([
+
+            'course_id' => ['required'],
+            'amount' => ['required'],
+            
+        ]);
+
         $fee->update($request->all());
         return redirect()->route('fee.index')
             ->with('success','Fee Updated successfully.');
@@ -90,10 +98,10 @@ class FeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\fee  $fee
+     * @param  \App\Models\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fee $fee)
+    public function destroy(Fee $fee)
     {
         $fee->delete();
        
@@ -105,7 +113,7 @@ class FeeController extends Controller
 
          public function onStatus(Request $request, $id)
          {
-             $status = fee::find($id);
+             $status = Fee::find($id);
              $status-> status = 'on';
              $status->save();
              return redirect()->route('fee.index')
@@ -114,7 +122,7 @@ class FeeController extends Controller
      
          public function offStatus(Request $request, $id)
          {
-             $status = fee::find($id);
+             $status = Fee::find($id);
              $status-> status = 'off';
              $status->save();
              return redirect()->route('fee.index')

@@ -16,7 +16,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Book Manage</legend> <!-- .form-group -->
-                                                
+                        <div class="col-md-8 mb-3">                
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -26,7 +26,7 @@
                                 </ul>
                             </div>
                         @endif
-
+                        </div>
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">

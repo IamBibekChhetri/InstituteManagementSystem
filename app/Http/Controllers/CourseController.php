@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\course;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -16,7 +16,7 @@ class CourseController extends Controller
     public function index()
     {
         $i = 1 ;
-        $course = course::all();
+        $course = Course::all();
         return view('admin.course.index',compact('i','course'));
     }
 
@@ -42,9 +42,11 @@ class CourseController extends Controller
             
             'name' => ['required', 'unique:courses'],
             'code' => ['required', 'unique:courses'],
+            'detail' => ['required', 'unique:courses'],
+            'duration' => ['required', 'unique:courses'],
         ]);
 
-        $course = course::create($request->all());
+        $course = Course::create($request->all());
         return redirect()->route('course.index')
             ->with('success','Course created successfully.');
     }
@@ -52,10 +54,10 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\course  $course
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(course $course)
+    public function show(Course $course)
     {
         return view('admin.course.show',compact('course'));
     }
@@ -63,10 +65,10 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\course  $course
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(course $course)
+    public function edit(Course $course)
     {
         return view('admin.course.edit',compact('course'));
     }
@@ -75,11 +77,19 @@ class CourseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\course  $course
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, course $course)
+    public function update(Request $request, Course $course)
     {
+        $validated = $request->validate([
+            
+            'name' => ['required', 'unique:courses'],
+            'code' => ['required', 'unique:courses'],
+            'detail' => ['required', 'unique:courses'],
+            'duration' => ['required', 'unique:courses'],
+        ]);
+
         $course->update($request->all());
         return redirect()->route('course.index')
             ->with('success','Course Updated successfully.');
@@ -88,10 +98,10 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\course  $course
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(course $course)
+    public function destroy(Course $course)
     {
         $course->delete();
        
@@ -101,7 +111,7 @@ class CourseController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = course::find($id);
+        $status = Course::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('course.index')
@@ -110,7 +120,7 @@ class CourseController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = course::find($id);
+        $status = Course::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('course.index')

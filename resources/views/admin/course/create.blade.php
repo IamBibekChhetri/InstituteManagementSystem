@@ -14,8 +14,8 @@
                     @csrf
                       <!-- .fieldset -->
                       <div class="row">
-                        <h4>Course Manage</h4> <!-- .form-group -->
-                                                
+                        <legend>Course Manage</legend> <!-- .form-group -->
+                        <div class="col-md-8 mb-3">                         
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -25,14 +25,13 @@
                                 </ul>
                             </div>
                         @endif
-
+                        </div>
                         
                         <!-- .form-group -->
                         <div class="col-md-12 mb-3">
                           
                           <label for="tf2">Cousrse Code</label>  <abbr title="Required">*</abbr>
-                          <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="code">
+                            <input type="text" class="form-control" id="tf2" placeholder="Enter Course code" name="code">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -40,14 +39,14 @@
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Course Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Course Name" name="name">
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label for="tf6">Course Deatails</label>
                           <abbr title="Required">*</abbr>
-                          <textarea class="form-control" id="tf6" rows="2" name="details"></textarea>
+                          <textarea class="form-control" id="tf6" rows="2" placeholder="About Course..." name="details"></textarea>
                         </div><!-- /.form-group -->
                         
                            <!-- .form-group -->
@@ -55,7 +54,7 @@
                              <label for="tf2">Cousrse Duration</label>
                              <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="duration">
+                            <input type="number" class="form-control" placeholder="Enter Course Duration" id="tf2" name="duration">
                           </div>
                         </div><!-- /.form-group -->
                         

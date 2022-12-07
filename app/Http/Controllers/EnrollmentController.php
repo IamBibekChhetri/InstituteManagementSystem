@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\course;
-use App\Models\student;
-use App\Models\enrollment;
+use App\Models\Course;
+use App\Models\Student;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
 class EnrollmentController extends Controller
@@ -16,9 +16,9 @@ class EnrollmentController extends Controller
      */
     public function index()
     {
-        $student = student::all();
-        $course = course::all();
-        $enrollment = enrollment::all();
+        $student = Student::all();
+        $course = Course::all();
+        $enrollment = Enrollment::all();
         return view('admin.enrollment.index',compact('enrollment','course','student'));
     }
 
@@ -29,8 +29,8 @@ class EnrollmentController extends Controller
      */
     public function create()
     {
-        $student = student::whereStatus('on')->get();
-        $course = course::whereStatus('on')->get();
+        $student = Student::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
         return view('admin.enrollment.create',compact('student','course'));
     }
 
@@ -42,7 +42,13 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
-        $enrollment = enrollment::create($request->all());
+        $validated = $request->validate([
+            
+            'course_id' => ['required'],
+            'student_id' => ['required'],
+            
+        ]);
+        $enrollment = Enrollment::create($request->all());
         return redirect()->route('enrollment.index')
             ->with('success','enrollment created successfully.');
     }
@@ -50,10 +56,10 @@ class EnrollmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\Enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function show(enrollment $enrollment)
+    public function show(Enrollment $enrollment)
     {
         //
     }
@@ -61,14 +67,14 @@ class EnrollmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\Enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $student = student::whereStatus('on')->get();
-        $course = course::whereStatus('on')->get();
-        $enrollment = enrollment::find($id);
+        $student = Student::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
+        $enrollment = Enrollment::find($id);
         return view('admin.enrollment.edit',compact('student','course','enrollment'));
     }
 
@@ -76,11 +82,18 @@ class EnrollmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\Enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, enrollment $enrollment)
+    public function update(Request $request, Enrollment $enrollment)
     {
+        $validated = $request->validate([
+            
+            'course_id' => ['required'],
+            'student_id' => ['required'],
+            
+        ]);
+        
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
         unlink('public/image/'.$student->photo);
@@ -105,10 +118,10 @@ class EnrollmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\enrollment  $enrollment
+     * @param  \App\Models\Enrollment  $enrollment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(enrollment $enrollment)
+    public function destroy(Enrollment $enrollment)
     {
         $enrollment->delete();
        

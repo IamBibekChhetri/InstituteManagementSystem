@@ -15,8 +15,7 @@
                       <!-- .fieldset -->
                       <div class="form-row">
                         <legend>Book Manage</legend> <!-- .form-group -->
-                         
-                        <div class="col-md-8 mb-3">
+                                                
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -26,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-                        </div>
+                        
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
@@ -86,7 +85,7 @@
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Book Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Book Name">
+                          <input type="text" class="form-control" id="tfDefault" name="name">
                         </div><!-- /.form-group -->
                         
                          <!-- .form-group -->
@@ -103,7 +102,7 @@
                           <div class="col-md-12 mb-3">
                           <label for="tf6">Book Deatails</label>
                           <abbr title="Required">*</abbr>
-                          <textarea class="form-control" id="tf6" rows="2" name="details" placeholder="Details Here..."></textarea>
+                          <textarea class="form-control" id="tf6" rows="2" name="details"></textarea>
                         </div><!-- /.form-group -->
                           
                         <div class="col-md-12 mb-3">                         

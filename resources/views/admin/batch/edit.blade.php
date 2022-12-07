@@ -16,7 +16,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Batch Manage</legend> <!-- .form-group -->
-                                                
+                        <div class="col-md-10 mb-3">                  
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -26,7 +26,7 @@
                                 </ul>
                             </div>
                         @endif
-
+                        </div>
                         
                         <!-- .form-group -->
                         <div class="col-md-5 mb-3">
@@ -43,20 +43,17 @@
                         <div class="col-md-4 mb-3">
                           <label for="tf2">Batch Code</label>
                           <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="code" value="{{$batch->code}}">
+                            <input type="number" class="form-control" id="tf2" name="code" value="{{$batch->code}}" placeholder="Enter Batch Code">
                           </div>
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
                         <div class="col-md-5 mb-3">
                           <label class="col-form-label" for="tfDefault">Batch Name</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="name" value="{{$batch->name}}">
+                          <input type="text" class="form-control" id="tfDefault" name="name" value="{{$batch->name}}" placeholder="Enter Batch Name">
                         </div><!-- /.form-group -->
                         
-                        <div class="col-md-12 mb-3">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" value="{{$batch->status}}" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
+                       
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>

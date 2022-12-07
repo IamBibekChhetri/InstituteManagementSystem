@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\author;
+use App\Models\Author;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -15,7 +15,7 @@ class AuthorController extends Controller
     public function index()
     {
         $i =1;
-        $author = author::all();
+        $author = Author::all();
         return view('admin.author.index',compact('i','author'));
     }
 
@@ -42,7 +42,7 @@ class AuthorController extends Controller
             'name' => ['required', 'unique:authors'],
         ]);
 
-        $author = author::create($request->all());
+        $author = Author::create($request->all());
         return redirect()->route('author.index')
             ->with('success','Author created successfully.');
     }
@@ -50,10 +50,10 @@ class AuthorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\author  $author
+     * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function show(author $author)
+    public function show(Author $author)
     {
         return view('admin.author.show',compact('author'));
     }
@@ -61,10 +61,10 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\author  $author
+     * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit(author $author)
+    public function edit(Author $author)
     {
         return view('admin.author.edit',compact('author'));
     }
@@ -73,11 +73,16 @@ class AuthorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\author  $author
+     * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, author $author)
+    public function update(Request $request, Author $author)
     {
+        $validated = $request->validate([
+            
+            'name' => ['required', 'unique:authors'],
+        ]);
+        
         $author->update($request->all());
         return redirect()->route('author.index')
             ->with('success','Author Updated successfully.');
@@ -86,10 +91,10 @@ class AuthorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\author  $author
+     * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function destroy(author $author)
+    public function destroy(Author $author)
     {
         $author->delete();
        
@@ -101,7 +106,7 @@ class AuthorController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = author::find($id);
+        $status = Author::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('author.index')
@@ -110,7 +115,7 @@ class AuthorController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = author::find($id);
+        $status = Author::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('author.index')

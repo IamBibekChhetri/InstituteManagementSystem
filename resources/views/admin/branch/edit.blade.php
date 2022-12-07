@@ -8,15 +8,15 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  <div class="card-body"><a href="{{asset('book')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
+                  <div class="card-body"><a href="{{url('book')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                     <!-- .form -->
-                    <form action="{{route('book.store')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                    <form action="{{route('book.update', $book->id)}}" method="POST">
+                        @csrf
+                        @method('PUT')
                       <!-- .fieldset -->
-                      <div class="form-row">
+                      <div class="row">
                         <legend>Book Manage</legend> <!-- .form-group -->
-                         
-                        <div class="col-md-8 mb-3">
+                                                
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -26,89 +26,72 @@
                                 </ul>
                             </div>
                         @endif
-                        </div>
-                        <!-- .form-group -->
+
                         
+
+                        <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-batch">Batch:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-batch" class="form-control" name="batch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-batch" class="form-control" data-toggle="select2" name="batch_id" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($batch as $batchs)
                               <option value="{{$batchs->id}}">{{$batchs->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
-                      
-
 
                         <!-- .form-group -->
-                        
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-course">Course:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-course" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-course" class="form-control" data-toggle="select2" name="course_id" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($course as $courses)
                               <option value="{{$courses->id}}">{{$courses->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
-                       
 
                         <!-- .form-group -->
-                        
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-subject">Subject:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-subject" class="form-control" name="subject_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-subject" class="form-control" data-toggle="select2" name="subject_id" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($subject as $subjects)
                               <option value="{{$subjects->id}}">{{$subjects->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
-                      
-
 
                         <!-- .form-group -->
-                        
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-author">Author:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-author" class="form-control" name="author_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-author" class="form-control" data-toggle="select2" name="author_id" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($author as $authors)
                               <option value="{{$authors->id}}">{{$authors->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
-                       
 
                         <!-- .form-group -->
-                        
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Book Name</label> 
-                          <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Book Name">
+                          <input type="text" class="form-control" id="tfDefault" name="name" value="{{$book->name}}">
                         </div><!-- /.form-group -->
-                        
+
                          <!-- .form-group -->
-                         
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Published Date</label> 
-                          <abbr title="Required">*</abbr>
-                          <input type="date" class="form-control" id="tfDefault" name="published">
-                        </div><!-- /.form-group -->
-
-
-                          <!-- .form-group -->
-                        
-                          <div class="col-md-12 mb-3">
-                          <label for="tf6">Book Deatails</label>
-                          <abbr title="Required">*</abbr>
-                          <textarea class="form-control" id="tf6" rows="2" name="details" placeholder="Details Here..."></textarea>
+                          <input type="date" class="form-control" id="tfDefault" name="published" value="{{$book->published}}">
                         </div><!-- /.form-group -->
                           
-                        <div class="col-md-12 mb-3">                         
+                        <!-- .form-group -->
+                        <div class="col-md-12 mb-3">
+                          <label for="tf6">Book Deatails</label>
+                          <textarea class="form-control" id="tf6" rows="2" name="details">{{$book->details}}</textarea>
+                        </div><!-- /.form-group -->
+                        <!-- .form-group -->
+                        
+                        <div class="col-md-12 mb-3">
+                        <div class="form-group">                            
                             <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
+                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" value="{{$book->status}}" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
                         </div><!-- /.form-group -->
                       </div><!-- /.fieldset -->
                       <div class="form-actions">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\instructor;
+use App\Models\Instructor;
 use Illuminate\Http\Request;
 
 class InstructorController extends Controller
@@ -15,7 +15,7 @@ class InstructorController extends Controller
     public function index()
     {
         $i = 1;
-        $instructor = instructor::all();
+        $instructor = Instructor::all();
         return view('admin.instructor.index',compact('i','instructor'));
     }
 
@@ -44,13 +44,15 @@ class InstructorController extends Controller
             'age' => ['required', ],
             'address' => ['required', ],
             'email' => ['required', ],
+            'photo' => ['required', ],
             'phone' => ['required', 'unique:instructors'],
+
         ]);
 
 
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
         move_uploaded_file($request->photo, 'public/image/'.$image);
-        $instructor= instructor::create($request->all());
+        $instructor= Instructor::create($request->all());
         $instructor->photo = $image;
         $instructor->save();
         return redirect()->route('instructor.index')
@@ -60,10 +62,10 @@ class InstructorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\instructor  $instructor
+     * @param  \App\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function show(instructor $instructor)
+    public function show(Instructor $instructor)
     {
 
       
@@ -72,10 +74,10 @@ class InstructorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\instructor  $instructor
+     * @param  \App\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function edit(instructor $instructor)
+    public function edit(Instructor $instructor)
     {
 
         return view('admin.instructor.edit',compact('instructor'));
@@ -85,11 +87,20 @@ class InstructorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\instructor  $instructor
+     * @param  \App\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, instructor $instructor)
+    public function update(Request $request, Instructor $instructor)
     {
+        $validated = $request->validate([
+            
+            'name' => ['required', ],
+            'age' => ['required', ],
+            'address' => ['required', ],
+            'email' => ['required', ],
+            'phone' => ['required', 'unique:instructors'],
+
+        ]);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
         unlink('public/image/'.$instructor->photo);
@@ -116,10 +127,10 @@ class InstructorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\instructor  $instructor
+     * @param  \App\Models\Instructor  $instructor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(instructor $instructor)
+    public function destroy(Instructor $instructor)
     {
         $instructor->delete();
        
@@ -132,7 +143,7 @@ class InstructorController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = instructor::find($id);
+        $status = Instructor::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('instructor.index')
@@ -141,7 +152,7 @@ class InstructorController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = instructor::find($id);
+        $status = Instructor::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('instructor.index')

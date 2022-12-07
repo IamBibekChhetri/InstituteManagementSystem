@@ -15,7 +15,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>User Manage</legend> <!-- .form-group -->
-                                                                      
+                        <div class="col-md-8 mb-3">                                       
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -25,6 +25,7 @@
                                 </ul>
                             </div>
                         @endif
+                      </div>
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label for="tf3">User Image</label>
@@ -49,21 +50,21 @@
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">User Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter User Name" name="name">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Address:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="address">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter user address" name="address">
                         </div><!-- /.form-group -->
                         
                          <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label for="tf2">Phone No:</label>  <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control"  name="phone">
+                            <input type="number" class="form-control" placeholder="Enter phone no"  name="phone">
                           </div>
                         </div><!-- /.form-group -->                        
                         

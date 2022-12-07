@@ -14,7 +14,10 @@
                         @csrf
                         @method('PUT')
 
-                        
+                        <!-- .fieldset -->
+                        <div class="row">
+                          <legend>User Role Manage</legend> <!-- .form-group -->
+                          <div class="col-md-8 mb-3">
                         @if ($errors->any())
                           <div class="alert alert-danger">
                               <ul>
@@ -24,9 +27,7 @@
                               </ul>
                           </div>
                       @endif
-                      <!-- .fieldset -->
-                      <fieldset>
-                        <legend>User Role Edit</legend> <!-- .form-group -->
+                      </div>
                       <!-- .form-group -->
                       <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">User Role</label> 
@@ -35,12 +36,9 @@
 
                         
 
-                        <div class="form-group">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" value="{{$user_role->status}}" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
+                        
 
-                      </fieldset><!-- /.fieldset -->
+                        </div><!-- /.fieldset -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>

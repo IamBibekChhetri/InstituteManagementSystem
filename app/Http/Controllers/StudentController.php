@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\batch;
-use App\Models\course;
-use App\Models\student;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -17,7 +15,7 @@ class StudentController extends Controller
     public function index()
     {
         $i = 1;
-        $student = student::all();
+        $student = Student::all();
         return view('admin.student.index',compact('i','student'));
     }
 
@@ -57,7 +55,7 @@ class StudentController extends Controller
         
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
         move_uploaded_file($request->photo, 'public/image/'.$image);
-        $student= student::create($request->all());
+        $student= Student::create($request->all());
         $student->photo = $image;
         $student->save();
         
@@ -69,10 +67,10 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show(Student $student)
     {
         
     }
@@ -80,10 +78,10 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(student $student)
+    public function edit(Student $student)
     {
         return view('admin.student.edit',compact('student'));
     }
@@ -92,11 +90,26 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, Student $student)
     {
+        $validated = $request->validate([
+            
+            'name' => ['required' ],
+            'gender' => ['required' ],
+            'father' => ['required' ],
+            'mother' => ['required' ],
+            'address' => ['required' ],
+            'state' => ['required' ],
+            'city' => ['required' ],
+            'qualification' => ['required' ],
+            'email' => ['required' ],
+            'password' => ['required' ],
+            'phone' => ['required', 'unique:students'],
+        ]);
+
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
         unlink('public/image/'.$student->photo);
@@ -128,10 +141,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\student  $student
+     * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy(Student $student)
     {
         $student->delete();
        
@@ -143,7 +156,7 @@ class StudentController extends Controller
 
     public function onStatus(Request $request, $id)
     {
-        $status = student::find($id);
+        $status = Student::find($id);
         $status-> status = 'on';
         $status->save();
         return redirect()->route('student.index')
@@ -152,7 +165,7 @@ class StudentController extends Controller
 
     public function offStatus(Request $request, $id)
     {
-        $status = student::find($id);
+        $status = Student::find($id);
         $status-> status = 'off';
         $status->save();
         return redirect()->route('student.index')

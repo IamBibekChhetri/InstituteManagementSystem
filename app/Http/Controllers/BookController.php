@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\batch;
-use App\Models\course;
-use App\Models\subject;
-use App\Models\author;
-use App\Models\book;
+use App\Models\Batch;
+use App\Models\Course;
+use App\Models\Subject;
+use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -19,7 +19,7 @@ class BookController extends Controller
     public function index()
     {
         $i = 1;
-        $book = book::all();
+        $book = Book::all();
         return view('admin.book.index',compact('i','book'));
     }
 
@@ -30,10 +30,10 @@ class BookController extends Controller
      */
     public function create()
     {
-        $batch = batch::whereStatus('on')->get();
-        $course = course::whereStatus('on')->get();
-        $subject = subject::whereStatus('on')->get();
-        $author = author::whereStatus('on')->get();
+        $batch = Batch::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
+        $subject = Subject::whereStatus('on')->get();
+        $author = Author::whereStatus('on')->get();
         return view('admin.book.create',compact('batch','course','subject','author'));
 
     }
@@ -47,11 +47,16 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            
-            'name' => ['required', 'unique:books'],           
+            'batch_id' => ['required'],
+            'course_id' => ['required'],
+            'subject_id' => ['required'],
+            'author_id' => ['required'],
+            'name' => ['required', 'unique:books'],
+            'published' => ['required'],
+            'details' => ['required'],
         ]);
         
-        $book = book::create($request->all());
+        $book = Book::create($request->all());
         return redirect()->route('book.index')
             ->with('success','Book created successfully.');
     }
@@ -59,10 +64,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\book  $book
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(book $book)
+    public function show(Book $book)
     {
         
     }
@@ -70,16 +75,16 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\book  $book
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $book = book::find($id);
-        $batch = batch::all();
-        $course = course::all();
-        $subject = subject::all();
-        $author = author::all();
+        $book = Book::find($id);
+        $batch = Batch::all();
+        $course = Course::all();
+        $subject = Subject::all();
+        $author = Author::all();
         return view('admin.book.edit',compact('batch','course','subject','author','book'));
     }
 
@@ -87,11 +92,21 @@ class BookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\book  $book
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, book $book)
+    public function update(Request $request, Book $book)
     {
+        $validated = $request->validate([
+            'batch_id' => ['required'],
+            'course_id' => ['required'],
+            'subject_id' => ['required'],
+            'author_id' => ['required'],
+            'name' => ['required', 'unique:books'],
+            'published' => ['required'],
+            'details' => ['required'],
+        ]);
+        
         $book->update($request->all());
         return redirect()->route('book.index')
             ->with('success','Book Updated successfully.');
@@ -100,10 +115,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\book  $book
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(book $book)
+    public function destroy(Book $book)
     {
         $book->delete();
        
@@ -115,7 +130,7 @@ class BookController extends Controller
 
      public function onStatus(Request $request, $id)
      {
-         $status = book::find($id);
+         $status = Book::find($id);
          $status-> status = 'on';
          $status->save();
          return redirect()->route('book.index')
@@ -124,7 +139,7 @@ class BookController extends Controller
  
      public function offStatus(Request $request, $id)
      {
-         $status = book::find($id);
+         $status = Book::find($id);
          $status-> status = 'off';
          $status->save();
          return redirect()->route('book.index')

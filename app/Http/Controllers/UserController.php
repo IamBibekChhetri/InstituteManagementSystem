@@ -93,10 +93,24 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        move_uploaded_file($request->photo, 'public/image/'.$imageName);
-
-        $user->photo = $imageName;
+        $validated = $request->validate([
+            
+            'photo' => ['required' ],
+            'user_role_id' => ['required' ],
+            'name' => ['required' ],
+            'address' => ['required' ],
+            'phone' => ['required', 'unique:users'],
+            'email' => ['required', 'unique:users'],
+        ]);
+        if ($request->hasFile('photo')){
+            $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
+        unlink('public/image/'.$user->photo);
+        move_uploaded_file($request->photo, 'public/image/'.$imageName); 
+            
+            $user-> photo = $imageName;
+            
+        }
+        
         $user-> user_role = $request->get('role');
         $user->name = $request->get('name');
         $user->address = $request->get('address');

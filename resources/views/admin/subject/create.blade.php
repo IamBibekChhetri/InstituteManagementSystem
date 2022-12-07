@@ -15,6 +15,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Subject Manage</legend> <!-- .form-group -->
+                        <div class="col-md-8 mb-3">
                         @if ($errors->any())
                               <div class="alert alert-danger">
                                   <ul>
@@ -24,7 +25,7 @@
                                   </ul>
                               </div>
                           @endif                                          
-
+                      </div>
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-batch">Batch:</label> 
@@ -51,7 +52,7 @@
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Subject Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Subject Name" name="name">
                         </div><!-- /.form-group -->
 
                         

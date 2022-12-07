@@ -16,6 +16,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Student Manage</legend> <!-- .form-group -->
+                        <div class="col-md-8 mb-3">
                         @if ($errors->any())
                               <div class="alert alert-danger">
                                   <ul>
@@ -25,7 +26,7 @@
                                   </ul>
                               </div>
                           @endif
-                       
+                      </div>
 
                          <!-- .form-group -->
                          <div class="col-md-6 mb-3">
@@ -126,10 +127,7 @@
                           <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control" value="label_with_action" id="lbl5" name="password">
                         </div><!-- /.form-group -->
 
-                        <div class="col-md-12 mb-3">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
+                        
 
                       </div><!-- /.fieldset -->
 

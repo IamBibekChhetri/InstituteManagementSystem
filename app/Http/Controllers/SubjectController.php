@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\batch;
-use App\Models\course;
-use App\Models\subject;
+use App\Models\Batch;
+use App\Models\Course;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -17,7 +17,7 @@ class SubjectController extends Controller
     public function index()
     {
         $i = 1;
-        $subject = subject::all();
+        $subject = Subject::all();
         return view('admin.subject.index', compact('i','subject'));
     }
 
@@ -28,8 +28,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $batch = batch::whereStatus('on')->get();
-        $course = course::whereStatus('on')->get();
+        $batch = Batch::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
         return view('admin.subject.create',compact('batch','course'));
     }
 
@@ -43,10 +43,12 @@ class SubjectController extends Controller
     {  
         $validated = $request->validate([
             
+        'batch_id' => ['required' ],        
+        'course_id' => ['required' ],        
         'name' => ['required' ],        
     ]);
     
-        $subject = subject::create($request->all());
+        $subject = Subject::create($request->all());
         return redirect()->route('subject.index')
             ->with('success','Subject created successfully.');
     }
@@ -54,10 +56,10 @@ class SubjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\subject  $subject
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function show(subject $subject)
+    public function show(Subject $subject)
     {
         
     }
@@ -65,13 +67,13 @@ class SubjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\subject  $subject
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function edit(subject $subject)
+    public function edit(Subject $subject)
     {
-        $batch = batch::whereStatus('on')->get();
-        $course = course::whereStatus('on')->get();
+        $batch = Batch::whereStatus('on')->get();
+        $course = Course::whereStatus('on')->get();
         return view('admin.subject.edit',compact('subject','batch','course'));
     }
 
@@ -79,11 +81,18 @@ class SubjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\subject  $subject
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, subject $subject)
+    public function update(Request $request, Subject $subject)
     {
+        $validated = $request->validate([
+            
+            'batch_id' => ['required' ],        
+            'course_id' => ['required' ],        
+            'name' => ['required' ],        
+        ]);
+        
         $subject->update($request->all());
         return redirect()->route('subject.index')
             ->with('success','Subject Updated successfully.');
@@ -92,10 +101,10 @@ class SubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\subject  $subject
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(subject $subject)
+    public function destroy(Subject $subject)
     {
         $subject->delete();
        
@@ -107,7 +116,7 @@ class SubjectController extends Controller
 
      public function onStatus(Request $request, $id)
      {
-         $status = subject::find($id);
+         $status = Subject::find($id);
          $status-> status = 'on';
          $status->save();
          return redirect()->route('subject.index')
@@ -116,7 +125,7 @@ class SubjectController extends Controller
  
      public function offStatus(Request $request, $id)
      {
-         $status = subject::find($id);
+         $status = Subject::find($id);
          $status-> status = 'off';
          $status->save();
          return redirect()->route('subject.index')

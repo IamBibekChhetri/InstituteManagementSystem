@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\companyInfo;
-use App\Models\student;
+use App\Models\CompanyInfo;
 use Illuminate\Http\Request;
 
 class CompanyInfoController extends Controller
@@ -15,8 +14,7 @@ class CompanyInfoController extends Controller
      */
     public function index()
     {
-        $student = student::all();
-        $company = companyInfo::all();
+        $company = CompanyInfo::all();
         return view('admin.companyInfo.index',compact('company','student'));
     }
 
@@ -44,10 +42,10 @@ class CompanyInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\companyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $companyInfo
      * @return \Illuminate\Http\Response
      */
-    public function show(companyInfo $companyInfo)
+    public function show(CompanyInfo $companyInfo)
     {
         //
     }
@@ -55,12 +53,12 @@ class CompanyInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\companyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $companyInfo
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $company = companyInfo::find($id);
+        $company = CompanyInfo::find($id);
         return view('admin.companyInfo.edit',compact('company'));
     }
 
@@ -68,10 +66,10 @@ class CompanyInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\companyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $companyInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, companyInfo $company)
+    public function update(Request $request, CompanyInfo $company)
     {
         $validated = $request->validate([
             
@@ -106,10 +104,10 @@ class CompanyInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\companyInfo  $companyInfo
+     * @param  \App\Models\CompanyInfo  $companyInfo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(companyInfo $companyInfo)
+    public function destroy(CompanyInfo $companyInfo)
     {
         //
     }

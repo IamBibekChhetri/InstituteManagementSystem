@@ -16,7 +16,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Book Manage</legend> <!-- .form-group -->
-                                                
+                        <div class="col-md-8 mb-3">                   
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -26,7 +26,7 @@
                                 </ul>
                             </div>
                         @endif
-
+                        </div>
                         
 
                         <!-- .form-group -->
@@ -72,7 +72,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Book Name</label> 
-                          <input type="text" class="form-control" id="tfDefault" name="name" value="{{$book->name}}">
+                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Book Name" value="{{$book->name}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
@@ -88,11 +88,7 @@
                         </div><!-- /.form-group -->
                         <!-- .form-group -->
                         
-                        <div class="col-md-12 mb-3">
-                        <div class="form-group">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" value="{{$book->status}}" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
+                        
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>

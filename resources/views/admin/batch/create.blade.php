@@ -15,7 +15,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Batch Manage</legend> <!-- .form-group -->
-                                                
+                        <div class="col-md-8 mb-3">                        
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -25,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-
+                        </div>
                         
                         <!-- .form-group -->
                         <div class="col-md-5 mb-3">
@@ -41,16 +41,14 @@
                         <!-- .form-group -->
                         <div class="col-md-4 mb-3">
                           <label for="tf2">Batch Code</label>  <abbr title="Required">*</abbr>
-                          <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2" name="code">
-                          </div>
+                            <input type="text" class="form-control"  name="code" placeholder="Enter Batch Code">
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
                         <div class="col-md-5 mb-3">
                           <label class="col-form-label" for="tfDefault">Batch Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Batch Name">
                         </div><!-- /.form-group -->
                         
                         <div class="col-md-12 mb-3">                            
