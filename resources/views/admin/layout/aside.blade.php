@@ -39,10 +39,10 @@
               <a href="#" class="menu-link"><i class="fas fa-globe text-primary" ></i>  <span class="menu-text">Enrollment</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('enrollment/create')}}" class="menu-link">Add Enrollment</a>
+                  <a href="{{asset('enrollment/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Enrollment</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('enrollment')}}" class="menu-link">View Enrollment</a>
+                  <a href="{{asset('enrollment')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Enrollment</a>
                 </li>                
               </ul>
             </li>
@@ -54,10 +54,10 @@
               <a href="#" class="menu-link"><i class="fa fa-trophy fa-fw text-warning" ></i>  <span class="menu-text">Course</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('course/create')}}" class="menu-link">Add Course</a>
+                  <a href="{{asset('course/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Course</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('course')}}" class="menu-link">View Course</a>
+                  <a href="{{asset('course')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Course</a>
                 </li>                
               </ul>
             </li>
@@ -67,10 +67,10 @@
               <a href="#" class="menu-link"><i class="fa fa-graduation-cap fa-fw "></i> <span class="menu-text">Batch</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('batch/create')}}" class="menu-link">Add Batch</a>
+                  <a href="{{asset('batch/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Batch</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('batch')}}" class="menu-link">View Batch</a>
+                  <a href="{{asset('batch')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Batch</a>
                 </li>                
               </ul>
             </li>
@@ -82,10 +82,10 @@
               <a href="#" class="menu-link"><i class="fas fa-star text-success"></i> <span class="menu-text">Subject</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('subject/create')}}" class="menu-link">Add Subject</a>
+                  <a href="{{asset('subject/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Subject</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('subject')}}" class="menu-link">View Subject</a>
+                  <a href="{{asset('subject')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Subject</a>
                 </li>                
               </ul>
             </li>
@@ -96,10 +96,10 @@
               <ul class="menu">
                 
                 <li class="menu-item">
-                  <a href="{{asset('author/create')}}" class="menu-link">Add Author</a>
+                  <a href="{{asset('author/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Author</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('author')}}" class="menu-link">View Author</a>
+                  <a href="{{asset('author')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Author</a>
                 </li>
                 
               </ul>
@@ -111,10 +111,10 @@
               <ul class="menu">
                 
                 <li class="menu-item">
-                  <a href="{{asset('book/create')}}" class="menu-link">Add Books</a>
+                  <a href="{{asset('book/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Books</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('book')}}" class="menu-link">View Books</a>
+                  <a href="{{asset('book')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Books</a>
                 </li>
                 
  
@@ -125,10 +125,10 @@
               <a href="#" class="menu-link"><i class="fa fa-user fa-fw text-warning"></i></span> <span class="menu-text">Instructor</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('instructor/create')}}" class="menu-link">Add Instructor</a>
+                  <a href="{{asset('instructor/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Instructor</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('instructor')}}" class="menu-link">View Instructor</a>
+                  <a href="{{asset('instructor')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Instructor</a>
                 </li>
                 
               </ul>
@@ -139,10 +139,10 @@
               <a href="#" class="menu-link"><i class="fa fa-user fa-fw text-success"></i></span> <span class="menu-text">Students</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('student/create')}}" class="menu-link">Add Students</a>
+                  <a href="{{asset('student/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Students</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('student')}}" class="menu-link">View Students</a>
+                  <a href="{{asset('student')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Students</a>
                 </li>
                 
               </ul>
@@ -152,10 +152,10 @@
               <a href="#" class="menu-link"><i class="fas fa-dollar-sign text-primary"></i> <span class="menu-text">Fees</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
-                  <a href="{{asset('fee/create')}}" class="menu-link">Add Fees</a>
+                  <a href="{{asset('fee/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Fees</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('fee')}}" class="menu-link">View Fees</a>
+                  <a href="{{asset('fee')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Fees</a>
                 </li>
                 
               </ul>
@@ -167,10 +167,10 @@
               <ul class="menu">
                 
                 <li class="menu-item">
-                  <a href="{{asset('payment/create')}}" class="menu-link">Add Payments</a>
+                  <a href="{{asset('payment/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i>  Payments</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('payment')}}" class="menu-link">View Payments</a>
+                  <a href="{{asset('payment')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Payments</a>
                 </li>
                 
               </ul>
@@ -183,43 +183,34 @@
               <ul class="menu">
                 
                 <li class="menu-item">
-                  <a href="{{asset('noticeboard/create')}}" class="menu-link">Add Noticeboard</a>
+                  <a href="{{asset('noticeboard/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Noticeboard</a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{asset('noticeboard')}}" class="menu-link">View Noticeboard</a>
+                  <a href="{{asset('noticeboard')}}" class="menu-link"><i class="fa fa-eye text-danger"></i> Noticeboard</a>
                 </li>
                 
               </ul>
             </li>
-            
-<!-- ------------------------------------------- User ROle -------------------------------------------  -->
-            <li class="menu-item has-child">
-              <a href="#" class="menu-link"><i class="fa fa-trophy fa-fw text-info"></i> <span class="menu-text">User Role</span></a> <!-- child menu -->
-              <ul class="menu">
-                
-                <li class="menu-item">
-                  <a href="{{asset('user_role/create')}}" class="menu-link">Add User Role</a>
-                </li>
-                <li class="menu-item">
-                  <a href="{{asset('user_role')}}" class="menu-link">View User Role</a>
-                </li>
-                
-              </ul>
-            </li>
-            <!-- ----------------------------------- User  --------------------------------------------  -->
-            <li class="menu-item has-child">
-              <a href="#" class="menu-link"><span class="menu-icon oi oi-person text-success"></span> <span class="menu-text">User</span></a> <!-- child menu -->
-              <ul class="menu">
-              <li class="menu-item">
-                  <a href="{{asset('user/create')}}" class="menu-link">Add User</a>
-                </li>
-                <li class="menu-item">
-                  <a href="{{asset('user')}}" class="menu-link">View User</a>
-                </li>
-              </ul>
-            </li>
-         
-
+   
+<!-- ------------------------------------------- Settings including User, User Role, Branches -------------------------------------------  -->         
+              <li class="menu-item has-child">
+                  <a href="#" class="menu-link"><span class="menu-icon fas fa-cogs text-danger"></span> <span class="menu-text">Setting</span></a> <!-- child menu -->
+                  <ul class="menu">
+                  <li class="menu-item">
+                      <a href="{{asset('user_role')}}" class="menu-link"><i class="menu-icon fas fa-user-shield text-info"></i>User Role</a>
+                  </li>
+                    
+                  <li class="menu-item">
+                    <a href="{{asset('user')}}" class="menu-link"><span class="menu-icon oi oi-person text-success"></span> View User</a>
+                  </li>
+                    
+                    <li class="menu-item">
+                      <a href="{{asset('branch')}}" class="menu-link"> <span class="menu-icon fas fa-code-branch text-danger"></span> Branches</a>
+                    </li>
+                    
+                    
+                  </ul><!-- /child menu -->
+                </li><!-- /.menu-item -->
             
             </ul><!-- /.menu -->
             <!-- .menu-item -->

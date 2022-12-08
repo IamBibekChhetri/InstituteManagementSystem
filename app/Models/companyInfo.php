@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class companyInfo extends Model
+class CompanyInfo extends Model
 {
     protected $fillable = [
         'cname', 'rname','address' , 'phone' , 'photo', 'pan' ,'email'

@@ -17,6 +17,7 @@ use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\BranchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::resource('user_role', UserRoleController::class)->middleware('auth');
 Route::resource('user', UserController::class)->middleware('auth');
 Route::resource('companyInfo', CompanyInfoController::class)->middleware('auth');
 Route::resource('enrollment', EnrollmentController::class)->middleware('auth');
+Route::resource('branch', BranchController::class)->middleware('auth');
 
 
 Auth::routes();
@@ -107,6 +109,11 @@ Route::get('user/offStatus/{id}',[App\Http\Controllers\UserController::class, 'o
 // ==================================== User Role Status Update Route ====================
 Route::get('user_role/onStatus/{id}',[App\Http\Controllers\userRoleController::class, 'onStatus']);
 Route::get('user_role/offStatus/{id}',[App\Http\Controllers\userRoleController::class, 'offStatus']);
+
+
+// ==================================== Branches Status Update Route ====================
+Route::get('branch/onStatus/{id}',[App\Http\Controllers\BranchController::class, 'onStatus']);
+Route::get('branch/offStatus/{id}',[App\Http\Controllers\BranchController::class, 'offStatus']);
 
 
 

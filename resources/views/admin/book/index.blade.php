@@ -13,7 +13,7 @@
                       <thead>
                         <tr>
                           <th> SN </th>
-                          <th> Batc </th>
+                          <th> Batch </th>
                           <th> Course </th>
                           <th> Subject </th>
                           <th> Author </th>

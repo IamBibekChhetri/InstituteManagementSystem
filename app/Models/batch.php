@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class batch extends Model
+class Batch extends Model
 {
     public function course()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(Course::class);
+    }
+
+    public function branch()
+    {
+        return $this->hasMany(Branch::class);
     }
     
 

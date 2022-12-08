@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class payment extends Model
+class Payment extends Model
 {
     public function student()
     {
-        return $this->belongsTo(student::class);
+        return $this->belongsTo(Student::class);
     }
     protected $fillable = [
         'student_id', 'payed', 'payment', 'transaction', 'status'

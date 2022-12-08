@@ -5,28 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class book extends Model
+class Book extends Model
 {
     public function batch()
     {
-        return $this->belongsTo(batch::class);
+        return $this->belongsTo(Batch::class);
     }
 
     public function course()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(Course::class);
     }
 
 
     public function subject()
     {
-        return $this->belongsTo(subject::class);
+        return $this->belongsTo(Subject::class);
     }
 
 
     public function author()
     {
-        return $this->belongsTo(author::class);
+        return $this->belongsTo(Author::class);
     }
 
 

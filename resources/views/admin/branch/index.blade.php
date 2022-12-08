@@ -1,10 +1,10 @@
 @extends('admin.layout.master')
 @section('content')
 
-
+<a href="{{asset('branch/create')}}"><button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button></a>
 <div class="card card-fluid">
                   <!-- .card-header -->
-                  <div class="card-header"> Manage Book <a href="{{asset('book/create')}}"><button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button></a></div><!-- /.card-header -->
+                  <div class="card-header"> Manage Branch </div><!-- /.card-header -->
                   <!-- .card-body -->
                   <div class="card-body">
                     <!-- .table -->
@@ -12,43 +12,45 @@
                       <!-- thead -->
                       <thead>
                         <tr>
-                          <th> SN </th>
-                          <th> Batc </th>
-                          <th> Course </th>
-                          <th> Subject </th>
-                          <th> Author </th>
-                          <th> Book </th>
-                          <th> Published On </th>
+                          <th> Batch </th>
+                          <th> Student </th>
+                          <th> Instructor </th>
+                          <th> Branch Name </th>
+                          <th> Address </th>
+                          <th> Pan / Vat No: </th>
+                          <th> Phone </th>
+                          <th> Email </th>
                           <th> Status </th>
                           <th> Action </th>
                         </tr>
                       </thead><!-- /thead -->
                       <tbody>
-                        @foreach ($book as $books)
+                        @foreach ($branch as $branchs)
                         <tr>
-                          <td>{{$i++}}</td>
-                          <td>{{$books->batch->name}}</td>
-                          <td>{{$books->course->name}}</td>
-                          <td>{{$books->subject->name}}</td>
-                          <td>{{$books->author->name}}</td>
-                          <td>{{$books->name}}</td>
-                          <td>{{$books->published}}</td>
-                          <td>{{$books->status}}</td>
+                          <td>{{$branchs->batch->name}}</td>
+                          <td>{{$branchs->student->name}}</td>
+                          <td>{{$branchs->instructor->name}}</td>
+                          <td>{{$branchs->name}}</td>
+                          <td>{{$branchs->address}}</td>
+                          <td>{{$branchs->panVat}}</td>
+                          <td>{{$branchs->phone}}</td>
+                          <td>{{$branchs->email}}</td>
+                          <td>{{$branchs->status}}</td>
                           <td class="centre" style="display:flex;">
 
-                          @if($books['status']=='on')                              
-                              <a href="{{ url('book/offStatus',$books->id) }}"><button class="btn btn-warning btn-sm" type="reset">off</button></a>
+                          @if($branchs['status']=='on')                              
+                              <a href="{{ url('branch/offStatus',$branchs->id) }}"><button class="btn btn-warning btn-sm" type="reset">off</button></a>
 
-                                @else($books['status']=='off') 
-                                  <a href="{{ url('book/onStatus',$books->id) }}"><button class="btn btn-warning btn-sm" type="reset">on</button></a>
+                                @else($branchs['status']=='off') 
+                                  <a href="{{ url('branch/onStatus',$branchs->id) }}"><button class="btn btn-warning btn-sm" type="reset">on</button></a>
 
                             @endif
                              &nbsp;
-                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showBookModel"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showBranchModel"><i class="fas fa-eye"></i></button>
                             &nbsp;
-                            <a href="{{ route('book.edit',$books->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
+                            <a href="{{ route('branch.edit',$branchs->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
-                            <form action="{{ route('book.destroy',$books->id) }}" method="POST">
+                            <form action="{{ route('branch.destroy',$branchs->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick=" return confirm('Are You sure you want to logout?');"><i class="far fa-trash-alt"></i></button>
@@ -57,11 +59,11 @@
                         </tr>
                         
 
-                        <div class="modal fade" id="showBookModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                        <div class="modal fade" id="showBranchModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Displaying Books</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Displaying Branch</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -72,48 +74,48 @@
 
                               <div class="form-group">
                                   <label>Batch:</label><br>
-                                  {{$books->batch->name}}
+                                  {{$branchs->batch->name}}
                               </div>
                                 
                                 <hr>
 
                               <div class="form-group">
-                                  <label>Course:</label><br>
-                                  {{$books->course->name}}
+                                  <label>Student Name:</label><br>
+                                  {{$branchs->student->name}}
                               </div>
                                 
                                 <hr>
 
                               <div class="form-group">
-                                  <label>Subject:</label><br>
-                                 {{$books->subject->name}}
+                                  <label>Instructor Name:</label><br>
+                                 {{$branchs->instructor->name}}
+                              </div>
+
+                                
+                                <hr>
+
+                              <div class="form-group">
+                                  <label>Branchs Name:</label><br>
+                                  {{$branchs->name}}
                               </div>
                                 
                                 <hr>
 
                               <div class="form-group">
-                                  <label>Author Name:</label><br>
-                                  {{$books->author->name}}
-                              </div>
-                                
-                                <hr>
-
-                              <div class="form-group">
-                                  <label>Books Name:</label><br>
-                                  {{$books->name}}
-                              </div>
-                                
-                                <hr>
-
-                              <div class="form-group">
-                                  <label>Published In:</label><br>
-                                  {{$books->published}}
+                                  <label> Address:</label><br>
+                                  {{$branchs->address}}
                               </div>
                                 <hr>
 
                               <div class="form-group">
-                                  <label>Total Books:</label><br>
-                                  {{$books->count()}}
+                                  <label>Phone:</label><br>
+                                  {{$branchs->phone}}
+                              </div>
+                                <hr>
+
+                              <div class="form-group">
+                                  <label>Email:</label><br>
+                                  {{$branchs->email}}
                               </div>
                                 
                               <div class="modal-footer">

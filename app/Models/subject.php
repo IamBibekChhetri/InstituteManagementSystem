@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class subject extends Model
+class Subject extends Model
 {
     public function batch()
     {
-        return $this->belongsTo(batch::class);
+        return $this->belongsTo(Batch::class);
     }
 
 
     public function course()
     {
-        return $this->belongsTo(course::class);
+        return $this->belongsTo(Course::class);
     }
 
     protected $fillable = [

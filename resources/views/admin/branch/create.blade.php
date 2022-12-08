@@ -8,14 +8,14 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  <div class="card-body"><a href="{{asset('book')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
+                  <div class="card-body"><a href="{{asset('branch')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                     <!-- .form -->
-                    <form action="{{route('book.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('branch.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <!-- .fieldset -->
                       <div class="form-row">
-                        <legend>Book Manage</legend> <!-- .form-group -->
-                                                
+                        <legend>Branch Manage</legend> <!-- .form-group -->
+                        <div class="col-md-9 mb-3">                     
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -25,7 +25,7 @@
                                 </ul>
                             </div>
                         @endif
-                        
+                        </div>
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
@@ -38,73 +38,70 @@
                           </select>
                         </div><!-- /.form-group -->
                       
-
-
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-course">Course:</label> 
+                          <label class="control-label" for="select2-student">Student:</label> 
                           <abbr title="Required">*</abbr>
-                          <select id="select2-course" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($course as $courses)
-                              <option value="{{$courses->id}}">{{$courses->name}}</option>
+                          <select id="select2-student" class="form-control" name="student_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($student as $students)
+                              <option value="{{$students->id}}">{{$students->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
-                       
 
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-subject">Subject:</label> 
+                          <label class="control-label" for="select2-instructor">Instructor:</label> 
                           <abbr title="Required">*</abbr>
-                          <select id="select2-subject" class="form-control" name="subject_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($subject as $subjects)
-                              <option value="{{$subjects->id}}">{{$subjects->name}}</option>
+                          <select id="select2-instructor" class="form-control" name="instructor_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($instructor as $instructors)
+                              <option value="{{$instructors->id}}">{{$instructors->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
-                      
-
 
                         <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-author">Author:</label> 
+                          <label class="col-form-label" for="tfDefault">Branch Name</label> 
                           <abbr title="Required">*</abbr>
-                          <select id="select2-author" class="form-control" name="author_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($author as $authors)
-                              <option value="{{$authors->id}}">{{$authors->name}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-                       
-
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="col-form-label" for="tfDefault">Book Name</label> 
-                          <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name">
+                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Branch Name">
                         </div><!-- /.form-group -->
                         
                          <!-- .form-group -->
-                         
-                         <div class="col-md-6 mb-3">
-                          <label class="col-form-label" for="tfDefault">Published Date</label> 
-                          <abbr title="Required">*</abbr>
-                          <input type="date" class="form-control" id="tfDefault" name="published">
-                        </div><!-- /.form-group -->
-
-
-                          <!-- .form-group -->
                         
-                          <div class="col-md-12 mb-3">
-                          <label for="tf6">Book Deatails</label>
+                        <div class="col-md-6 mb-3">
+                          <label class="col-form-label" for="tfDefault">Address</label> 
                           <abbr title="Required">*</abbr>
-                          <textarea class="form-control" id="tf6" rows="2" name="details"></textarea>
+                          <input type="text" class="form-control" id="tfDefault" name="address" placeholder="Enter Branch Address">
                         </div><!-- /.form-group -->
-                          
+
+                        
+                         <!-- .form-group -->
+                        
+                        <div class="col-md-6 mb-3">
+                          <label class="col-form-label" for="tfDefault">Pan / Vat no:</label> 
+                          <abbr title="Required">*</abbr>
+                          <input type="text" class="form-control" id="tfDefault" name="panVat" placeholder="Enter Branch Pan or Vat No">
+                        </div><!-- /.form-group -->
+
+
+                         <!-- .form-group -->
+                        <div class="col-md-6 mb-3">
+                          <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
+                          <div class="custom-number"> 
+                            <input type="number" class="form-control"  name="phone" placeholder="Enter Branch Phone Number" >
+                          </div>
+                        </div><!-- /.form-group -->
+
+
+                        <div class="col-md-6 mb-3">
+                            <label for="tf5">Email</label>  <abbr title="Required">*</abbr>
+                            <input type="email" class="form-control" id="fl1" placeholder="Email address" required="" name="email">
+                        </div><!-- /.form-group -->
+
                         <div class="col-md-12 mb-3">                         
                             <span>Is Active:</span> <!-- .switcher-control -->
                             <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            

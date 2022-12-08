@@ -132,7 +132,7 @@
 
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
-                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control" value="label_with_action" id="lbl5" name="password">
+                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control"  id="lbl5" name="password">
                         </div><!-- /.form-group -->
 
                         <div class="col-md-12 mb-3">                            

@@ -5,16 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class student extends Model
+class Student extends Model
 {
     public function payment()
     {
-        return $this->belongsTo(payment::class);
+        return $this->hasMany(Payment::class);
     }
 
+    public function branch()
+    {
+        return $this->hasMany(Branch::class);
+    }
 
     protected $fillable = [
-        'name', 'batch_id', 'gender','DOB' , 'father' , 'mother' ,'address', 'state','city','zipcode','nationality','phone','qualification','photo','email','password', 'status'
+        'name', 'gender','DOB' , 'father' , 'mother' ,'address', 'state','city','zipcode','nationality','phone','qualification','photo','email','password', 'status'
 
     ];
 }

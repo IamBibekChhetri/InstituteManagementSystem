@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user_role = User_role::all();
+        $user_role = User_role::whereStatus('on')->get();
         return view('admin.user.create',compact('user_role'));
     }
 

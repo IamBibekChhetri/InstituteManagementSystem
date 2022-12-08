@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('panVat');
             $table->string('phone');
+            $table->string('email');
             $table->string('status');
             $table->timestamps();
         });
