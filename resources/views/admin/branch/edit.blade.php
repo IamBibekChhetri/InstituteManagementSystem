@@ -29,43 +29,7 @@
 
                         
 
-                         <!-- .form-group -->
-                        
-                         <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-batch">Batch:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-batch" class="form-control" name="batch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($batch as $batchs)
-                              <option value="{{$batchs->id}}">{{$batchs->name}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
                       
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-student">Student:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-student" class="form-control" name="student_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($student as $students)
-                              <option value="{{$students->id}}">{{$students->name}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-
-                        <!-- .form-group -->
-                        
-                        <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-instructor">Instructor:</label> 
-                          <abbr title="Required">*</abbr>
-                          <select id="select2-instructor" class="form-control" name="instructor_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($instructor as $instructors)
-                              <option value="{{$instructors->id}}">{{$instructors->name}}</option>
-                            @endforeach
-                          </select>
-                        </div><!-- /.form-group -->
-
-                        <!-- .form-group -->
                         
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Branch Name</label> 

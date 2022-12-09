@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 11:49 AM
+-- Generation Time: Dec 09, 2022 at 10:51 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -53,6 +53,7 @@ INSERT INTO `authors` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUE
 CREATE TABLE `batches` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `course_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL,
   `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -64,10 +65,10 @@ CREATE TABLE `batches` (
 -- Dumping data for table `batches`
 --
 
-INSERT INTO `batches` (`id`, `course_id`, `code`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, '2', 'Quin Bray', 'on', '2022-12-01 05:01:25', '2022-12-01 05:01:25'),
-(2, 3, '36', 'Cathleen Cervantes', 'on', '2022-12-01 05:01:31', '2022-12-01 05:01:49'),
-(3, 2, '89', 'Rhoda Compton', 'on', '2022-12-01 05:01:39', '2022-12-01 05:01:39');
+INSERT INTO `batches` (`id`, `course_id`, `branch_id`, `code`, `name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, '2', 'Quin Bray', 'on', '2022-12-01 05:01:25', '2022-12-01 05:01:25'),
+(2, 3, 0, '36', 'Cathleen Cervantes', 'on', '2022-12-01 05:01:31', '2022-12-01 05:01:49'),
+(3, 2, 0, '89', 'Rhoda Compton', 'on', '2022-12-01 05:01:39', '2022-12-01 05:01:39');
 
 -- --------------------------------------------------------
 
@@ -97,6 +98,32 @@ INSERT INTO `books` (`id`, `batch_id`, `course_id`, `subject_id`, `author_id`, `
 (1, 1, 2, 1, 1, 'Rowan Cook', 'In vel exercitation', '1970-08-09', 'on', '2022-12-01 05:02:42', '2022-12-01 05:02:42'),
 (2, 3, 3, 1, 1, 'Basil Robinson', 'Suscipit veniam off', '1979-04-15', 'on', '2022-12-01 05:02:49', '2022-12-01 05:02:49'),
 (3, 3, 3, 2, 1, 'Uriel Pugh', 'Dolorem aliquam magn', '1987-08-12', 'on', '2022-12-01 05:02:56', '2022-12-01 05:02:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `branches`
+--
+
+CREATE TABLE `branches` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `panVat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `branches`
+--
+
+INSERT INTO `branches` (`id`, `name`, `address`, `panVat`, `phone`, `email`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Isabella Small', 'Eleanor Reynolds', 'Shoshana Atkins', '83', 'abc@gmail.com', 'on', '2022-12-08 03:55:28', '2022-12-08 03:58:36'),
+(2, 'Jin Dale', 'Judith Stein', 'Cheryl Pace', '9', 'gibaz@gmail.com', 'on', '2022-12-08 05:17:02', '2022-12-08 05:17:02');
 
 -- --------------------------------------------------------
 
@@ -227,6 +254,7 @@ CREATE TABLE `instructors` (
   `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `branch_id` int(11) NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -236,9 +264,9 @@ CREATE TABLE `instructors` (
 -- Dumping data for table `instructors`
 --
 
-INSERT INTO `instructors` (`id`, `name`, `age`, `address`, `phone`, `photo`, `email`, `password`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Jael Greene', '25', 'Justin Rosario', '98562232155', '1669891692.png', 'dejafulere@mailinator.com', 'Pa$$w0rd!', 'on', '2022-12-01 05:03:12', '2022-12-02 01:36:56'),
-(2, 'Dominic Pierce', '96', 'Alec Bullock', '9865654221212', '1669965982-png', 'cujeqy@mailinator.com', 'Pa$$w0rd!', 'on', '2022-12-01 05:03:27', '2022-12-02 01:41:22');
+INSERT INTO `instructors` (`id`, `name`, `age`, `address`, `phone`, `photo`, `email`, `password`, `branch_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Jael Greene', '25', 'Justin Rosario', '98562232155', '1669891692.png', 'dejafulere@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:03:12', '2022-12-02 01:36:56'),
+(2, 'Dominic Pierce', '96', 'Alec Bullock', '9865654221212', '1669965982-png', 'cujeqy@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:03:27', '2022-12-02 01:41:22');
 
 -- --------------------------------------------------------
 
@@ -273,7 +301,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2022_11_15_054059_create_subjects_table', 1),
 (15, '2022_11_21_054716_create_user_roles_table', 1),
 (16, '2022_11_29_070912_create_company_infos_table', 1),
-(17, '2022_11_29_095017_create_enrollments_table', 2);
+(17, '2022_11_29_095017_create_enrollments_table', 2),
+(18, '2022_12_07_081721_create_branches_table', 3),
+(19, '2022_12_07_081721_create_branchs_table', 4);
 
 -- --------------------------------------------------------
 
@@ -293,6 +323,13 @@ CREATE TABLE `noticeboards` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `noticeboards`
+--
+
+INSERT INTO `noticeboards` (`id`, `title`, `description`, `attachement`, `start`, `end`, `priority`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Admission Open', 'hello admission open please admit ;your children here', '1670405269.jpg', '2023-01-07', '2023-01-26', '1', 'on', '2022-12-07 03:42:49', '2022-12-07 03:43:04');
 
 -- --------------------------------------------------------
 
@@ -373,6 +410,7 @@ CREATE TABLE `students` (
   `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `branch_id` int(11) NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -382,9 +420,9 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `gender`, `DOB`, `father`, `mother`, `address`, `state`, `city`, `zipcode`, `nationality`, `phone`, `qualification`, `photo`, `email`, `password`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Wesley Cooper', 'Male', '2022-07-25', 'Cara Flores', 'Hasad Dodson', 'Rebecca Hayes', 'Allen Sutton', 'Kaitlin Ellis', 'Norman Osborne', 'Simone Morales', '14', 'Whilemina Graves', '1669891735.png', 'petop@mailinator.com', 'Pa$$w0rd!', 'on', '2022-12-01 05:03:55', '2022-12-01 05:03:55'),
-(2, 'Shad Wilkinson', 'Other', '1984-02-10', 'Bryar Vazquez', 'Stella Sims', 'Bree Joyner', 'Pearl Grimes', 'Lunea Britt', 'Juliet Guzman', 'Graham Huffman', '68', 'Martha Wade', '1669891751.png', 'pilut@mailinator.com', 'Pa$$w0rd!', 'on', '2022-12-01 05:04:11', '2022-12-01 05:04:11');
+INSERT INTO `students` (`id`, `name`, `gender`, `DOB`, `father`, `mother`, `address`, `state`, `city`, `zipcode`, `nationality`, `phone`, `qualification`, `photo`, `email`, `password`, `branch_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Wesley Cooper', 'Male', '2022-07-25', 'Cara Flores', 'Hasad Dodson', 'Rebecca Hayes', 'Allen Sutton', 'Kaitlin Ellis', 'Norman Osborne', 'Simone Morales', '14', 'Whilemina Graves', '1669891735.png', 'petop@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:03:55', '2022-12-01 05:03:55'),
+(2, 'Shad Wilkinson', 'Other', '1984-02-10', 'Bryar Vazquez', 'Stella Sims', 'Bree Joyner', 'Pearl Grimes', 'Lunea Britt', 'Juliet Guzman', 'Graham Huffman', '68', 'Martha Wade', '1669891751.png', 'pilut@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:04:11', '2022-12-01 05:04:11');
 
 -- --------------------------------------------------------
 
@@ -458,7 +496,8 @@ CREATE TABLE `user_roles` (
 --
 
 INSERT INTO `user_roles` (`id`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'on', NULL, NULL);
+(1, 'Admin', 'on', NULL, '2022-12-08 01:44:39'),
+(2, 'Student', 'off', '2022-12-08 03:22:52', '2022-12-08 03:23:12');
 
 --
 -- Indexes for dumped tables
@@ -480,6 +519,12 @@ ALTER TABLE `batches`
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `branches`
+--
+ALTER TABLE `branches`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -599,6 +644,12 @@ ALTER TABLE `books`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `branches`
+--
+ALTER TABLE `branches`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `company_infos`
 --
 ALTER TABLE `company_infos`
@@ -638,13 +689,13 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `noticeboards`
 --
 ALTER TABLE `noticeboards`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -680,7 +731,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

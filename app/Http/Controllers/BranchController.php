@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Batch;
-use App\Models\Student;
-use App\Models\Instructor;
+
 use App\Models\Branch;
 use Illuminate\Http\Request;
 
@@ -29,10 +27,8 @@ class BranchController extends Controller
      */
     public function create()
     {
-        $batch = Batch::whereStatus('on')->get();
-        $student = Student::whereStatus('on')->get();
-        $instructor = Instructor::whereStatus('on')->get();
-        return view('admin.branch.create',compact('batch','student','instructor'));
+
+        return view('admin.branch.create');
 
     }
 
@@ -45,9 +41,7 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'batch_id' => ['required'],
-            'student_id' => ['required'],
-            'instructor_id' => ['required'],
+            
             'name' => ['required'],
             'address' => ['required'],
             'panVat' => ['required'],
@@ -80,10 +74,8 @@ class BranchController extends Controller
      */
     public function edit(Branch $branch)
     {
-        $batch = Batch::whereStatus('on')->get();
-        $student = Student::whereStatus('on')->get();
-        $instructor = Instructor::whereStatus('on')->get();
-        return view('admin.branch.edit',compact('batch','student','instructor','branch'));
+        
+        return view('admin.branch.edit',compact('branch'));
     }
 
     /**
@@ -96,9 +88,7 @@ class BranchController extends Controller
     public function update(Request $request, Branch $branch)
     {
         $validated = $request->validate([
-            'batch_id' => ['required'],
-            'student_id' => ['required'],
-            'instructor_id' => ['required'],
+           
             'name' => ['required'],
             'address' => ['required'],
             'panVat' => ['required'],

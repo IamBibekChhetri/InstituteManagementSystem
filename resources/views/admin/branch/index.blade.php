@@ -12,9 +12,6 @@
                       <!-- thead -->
                       <thead>
                         <tr>
-                          <th> Batch </th>
-                          <th> Student </th>
-                          <th> Instructor </th>
                           <th> Branch Name </th>
                           <th> Address </th>
                           <th> Pan / Vat No: </th>
@@ -27,9 +24,6 @@
                       <tbody>
                         @foreach ($branch as $branchs)
                         <tr>
-                          <td>{{$branchs->batch->name}}</td>
-                          <td>{{$branchs->student->name}}</td>
-                          <td>{{$branchs->instructor->name}}</td>
                           <td>{{$branchs->name}}</td>
                           <td>{{$branchs->address}}</td>
                           <td>{{$branchs->panVat}}</td>
@@ -72,28 +66,7 @@
                               
                               <div class="modal-body">
 
-                              <div class="form-group">
-                                  <label>Batch:</label><br>
-                                  {{$branchs->batch->name}}
-                              </div>
-                                
-                                <hr>
-
-                              <div class="form-group">
-                                  <label>Student Name:</label><br>
-                                  {{$branchs->student->name}}
-                              </div>
-                                
-                                <hr>
-
-                              <div class="form-group">
-                                  <label>Instructor Name:</label><br>
-                                 {{$branchs->instructor->name}}
-                              </div>
-
-                                
-                                <hr>
-
+                              
                               <div class="form-group">
                                   <label>Branchs Name:</label><br>
                                   {{$branchs->name}}
