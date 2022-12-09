@@ -13,6 +13,7 @@
                       <thead>
                         <tr>
                           <th> SN </th>
+                          <th> Branch </th>
                           <th> Photo </th>
                           <th> Name </th>
                           <th> Phone </th>
@@ -24,6 +25,7 @@
                         @foreach( $student as $students)
                         <tr>
                           <td>{{$i++}}</td>
+                          <td>{{$students->branch->name}}</td>
                           <td><img src="{{asset('public/image/'.$students->photo)}}" alt="" height="50px"></td>
                           <td>{{$students->name}}</td>
                           <td>{{$students->phone}}</td>

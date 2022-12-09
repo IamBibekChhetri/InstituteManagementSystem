@@ -69,7 +69,7 @@
 
                                                
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-6 mb-3">
                           <label for="tf3">Instructor Photo</label>
                           <div class="custom-file">
                             <input type="file" class="custom-file-input" id="tf3" name="photo"> 
@@ -79,13 +79,13 @@
                         </div><!-- /.form-group -->
 
 
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="tf5">Email</label>
                             <input type="email" class="form-control" id="fl1" placeholder="Email address" required="" name="email" value="{{$instructor->email}}">
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control" id="lbl5" name="password">
                         </div><!-- /.form-group -->
 

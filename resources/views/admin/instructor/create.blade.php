@@ -71,7 +71,7 @@
 
                                                
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-6 mb-3">
                           <label for="tf3">Instructor Photo</label>
                           <abbr title="Required">*</abbr>
                           <div class="custom-file">
@@ -80,14 +80,14 @@
                         </div><!-- /.form-group -->
 
 
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 mb-3">
                            <span>Email</span>  <abbr title="Required">*</abbr>
                             <input type="email" class="form-control" id="fl1" placeholder="Email address" placeholder="Enter Email" required="" name="email">
                           
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-4 mb-3">  <abbr title="Required">*</abbr>
+                        <div class="col-md-6 mb-3">  <abbr title="Required">*</abbr>
                           <span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a><input type="password" placeholder="Enter Password" class="form-control" id="lbl5" name="password">
                         </div><!-- /.form-group -->
 

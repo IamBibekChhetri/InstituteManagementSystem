@@ -29,7 +29,7 @@
                         </div>
                         
                         <!-- .form-group -->
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-single">Course:</label> 
                           <select id="select2-single" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($course as $courses)
@@ -40,7 +40,7 @@
 
                         
                         <!-- .form-group -->
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-branch">branch:</label> 
                           <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($branch as $branchs)
@@ -51,7 +51,7 @@
 
 
                         <!-- .form-group -->
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label for="tf2">Batch Code</label>
                           <div class="custom-number">
                             <input type="number" class="form-control" id="tf2" name="code" value="{{$batch->code}}" placeholder="Enter Batch Code">
@@ -59,7 +59,7 @@
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Batch Name</label> 
                           <input type="text" class="form-control" id="tfDefault" name="name" value="{{$batch->name}}" placeholder="Enter Batch Name">
                         </div><!-- /.form-group -->

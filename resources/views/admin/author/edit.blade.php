@@ -30,7 +30,7 @@
                         </div>
                         
                         <!-- .form-group -->
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                           <label class="col-form-label" for="tfDefault">Author Name</label> 
                           <input type="text" class="form-control" id="tfDefault" name="name" value="{{$author->name}}">
                         </div><!-- /.form-group -->

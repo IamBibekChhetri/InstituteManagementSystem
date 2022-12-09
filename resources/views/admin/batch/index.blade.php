@@ -13,6 +13,7 @@
                       <thead>
                         <tr>
                           <th> SN </th>
+                          <th> Branch </th>
                           <th> Batch code </th>
                           <th> Batch Name </th>
                           <th> Course </th>
@@ -24,7 +25,7 @@
                         @foreach($batch as $batchs)
                         <tr>
                           <td>{{$i++}}</td>
-                          <td>{{$batchs->code}}</td>
+                          <td>{{$batchs->branch->name}}</td>
                           <td>{{$batchs->name}}</td>
                           <td>{{$batchs->course->name}}</td>
                           <td>{{$batchs->status}}</td>

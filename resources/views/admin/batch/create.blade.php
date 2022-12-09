@@ -3,9 +3,6 @@
 
 
 <div class="page-section">
-                <div class="d-xl-none">
-                  <button class="btn btn-danger btn-floated" type="button" data-toggle="sidebar"><i class="fa fa-th-list"></i></button>
-                </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
                   <div class="card-body"><a href="{{asset('batch')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
@@ -15,7 +12,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend>Batch Manage</legend> <!-- .form-group -->
-                        <div class="col-md-8 mb-3">                        
+                        <div class="col-md-12 mb-3">                        
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -28,7 +25,7 @@
                         </div>
                         
                         <!-- .form-group -->
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-single">Course:</label> 
                           <abbr title="Required">*</abbr>
                           <select id="select2-single" class="form-control" data-toggle="select2" name="course_id" data-placeholder="Select a state" data-allow-clear="true">
@@ -39,7 +36,7 @@
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-branch">Branch:</label> 
                           <abbr title="Required">*</abbr>
                           <select id="select2-branch" class="form-control" data-toggle="select2" name="branch_id" data-placeholder="Select a state" data-allow-clear="true">
@@ -50,13 +47,13 @@
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label for="tf2">Batch Code</label>  <abbr title="Required">*</abbr>
                             <input type="text" class="form-control"  name="code" placeholder="Enter Batch Code">
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Batch Name</label> 
                           <abbr title="Required">*</abbr>
                           <input type="text" class="form-control" id="tfDefault" name="name" placeholder="Enter Batch Name">

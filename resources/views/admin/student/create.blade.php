@@ -28,7 +28,7 @@
                       </div>
 
                       <!-- .form-group -->
-                      <div class="col-md-5 mb-3">
+                      <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-branch">branch:</label> 
                           <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($branch as $branchs)
@@ -46,7 +46,7 @@
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                           <label class="col-form-label" for="selDefault">Gender</label> 
                           <abbr title="Required">*</abbr>
                           <select class="custom-select" id="selDefault" name="gender">
@@ -58,7 +58,7 @@
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                           <label class="col-form-label" for="tfDefault">Date Of Birth:</label> 
                           <abbr title="Required">*</abbr>
                           <input type="date" class="form-control" id="tfDefault"  name="DOB">
@@ -72,14 +72,14 @@
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Mother Name</label> 
                           <abbr title="Required">*</abbr>
                           <input type="text" class="form-control" id="tfDefault" name="mother" placeholder="Enter Mother Name">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-6 mb-3">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number">
                             <input type="number" class="form-control"  name="phone" placeholder="Enter Student Phone NO">

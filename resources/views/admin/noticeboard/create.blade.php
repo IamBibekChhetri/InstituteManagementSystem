@@ -49,6 +49,15 @@
                           </div>
                         </div><!-- /.form-group -->
 
+                           <!-- .form-group -->
+                           <div class="col-md-6 mb-3">
+                          <label for="tf2">Priority</label>
+                          <abbr title="Required">*</abbr>
+                          <div class="custom-number">
+                            <input type="number" class="form-control" id="tf2"  name="priority">
+                          </div>
+                        </div><!-- /.form-group -->
+                        
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Start On:</label> 
@@ -63,16 +72,6 @@
                           <input type="date" class="form-control" id="tfDefault" name="end">
                         </div><!-- /.form-group -->
 
-                           <!-- .form-group -->
-                           <div class="col-md-6 mb-3">
-                          <label for="tf2">Priority</label>
-                          <abbr title="Required">*</abbr>
-                          <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2"  name="priority">
-                          </div>
-                        </div><!-- /.form-group -->
-                        
-                           
                         <div class="col-md-12 mb-3">                            
                             <span>Is Active:</span> <!-- .switcher-control -->
                             <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            

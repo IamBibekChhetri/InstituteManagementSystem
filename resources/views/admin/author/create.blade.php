@@ -28,7 +28,7 @@
                         @endif
                         </div>
                         <!-- .form-group -->
-                        <div class="col-md-8 mb-3">
+                        <div class="col-md-12 mb-3">
                         <label for="author">Author Name</label> 
                           <abbr title="Required">*</abbr>
                           <input type="text" class="form-control" id="tfDefault" name="name" placeholder=" Enter Author Name">

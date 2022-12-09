@@ -49,6 +49,15 @@
                           </div>
                         </div><!-- /.form-group -->
 
+                           <!-- .form-group -->
+                           <div class="col-md-6 mb-3">
+                          <label for="tf2">Priority</label>
+                          <abbr title="Required">*</abbr>
+                          <div class="custom-number">
+                            <input type="number" class="form-control" id="tf2"  name="priority">
+                          </div>
+                        </div><!-- /.form-group -->
+                        
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Start On:</label> 
@@ -61,16 +70,6 @@
                           <input type="date" class="form-control" id="tfDefault" name="end" value="{{$noticeboard->end}}">
                         </div><!-- /.form-group -->
 
-                           <!-- .form-group -->
-                           <div class="col-md-6 mb-3">
-                          <label for="tf2">Priority</label>
-                          <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2"  name="priority" value="{{$noticeboard->priority}}">
-                          </div>
-                        </div><!-- /.form-group -->
-                        
-                           
-                        
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                         <button class="btn btn-primary" type="submit">Submit</button>

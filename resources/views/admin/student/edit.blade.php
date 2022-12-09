@@ -29,7 +29,7 @@
                       </div>
 
                       <!-- .form-group -->
-                      <div class="col-md-5 mb-3">
+                      <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-branch">branch:</label> 
                           <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
                             @foreach ($branch as $branchs)
@@ -46,7 +46,7 @@
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                           <label class="col-form-label" for="selDefault">Gender</label> <select class="custom-select" id="selDefault" name="gender">
                             <option>Male</option>
                             <option>Female</option>
@@ -56,7 +56,7 @@
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                           <label class="col-form-label" for="tfDefault">Date Of Birth:</label> 
                           <input type="date" class="form-control" id="tfDefault" name="DOB" value="{{$student->DOB}}">
                         </div><!-- /.form-group -->
@@ -68,13 +68,13 @@
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Mother Name</label> 
                           <input type="text" class="form-control" id="tfDefault" name="mother"  value="{{$student->mother}}"> 
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-3 mb-3">
+                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Phone no</label> 
                           <input type="number" class="form-control" id="tfDefault" name="phone"  value="{{$student->phone}}">
                         </div><!-- /.form-group -->
@@ -87,25 +87,25 @@
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">State</label> 
                           <input type="text" class="form-control" id="tfDefault" name="state"  value="{{$student->state}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">City</label> 
                           <input type="text" class="form-control" id="tfDefault" name="city"  value="{{$student->city}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">Zip Code</label> 
                           <input type="number" class="form-control" id="tfDefault" name="zipcode"  value="{{$student->zipcode}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
-                         <div class="col-md-4 mb-3">
+                         <div class="col-md-3 mb-3">
                           <label class="col-form-label" for="tfDefault">Nationality</label> 
                           <input type="text" class="form-control" id="tfDefault" name="nationality"  value="{{$student->nationality}}">
                         </div><!-- /.form-group -->
@@ -121,21 +121,19 @@
                           <label for="tf3">Student Photo</label>
                           <div class="custom-file">
                             <input type="file" class="custom-file-input" id="tf3" name="photo">
-                            <img src="../../public/image/{{ $student->photo }}" height="50px" width="50px">
+                            <img src="../../public/image/{{ $student->photo }}" height="50px" width="50px" >
                             <label class="custom-file-label" for="tf3">Photo</label>
                           </div>
                         </div><!-- /.form-group -->
 
                         <div class="col-md-6 mb-3">
-                          <div class="form-label-group">
                             <label for="tf5">Email</label>
                             <input type="email" class="form-control" id="fl1" placeholder="Email address" required="" name="email"  value="{{$student->email}}">
-                          </div>
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
-                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control" value="label_with_action" id="lbl5" name="password">
+                         <span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a><input type="password" class="form-control" id="lbl5" name="password">
                         </div><!-- /.form-group -->
 
                         
