@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('admin.student.create');
+        $branch = Branch::whereStatus('on')->get();
+        return view('admin.student.create',compact('branch'));
     }
 
     /**
@@ -39,6 +41,7 @@ class StudentController extends Controller
     {
         $validated = $request->validate([
             
+            'branch_id' => ['required' ],
             'name' => ['required' ],
             'gender' => ['required' ],
             'father' => ['required' ],
@@ -83,7 +86,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('admin.student.edit',compact('student'));
+        $branch = Branch::whereStatus('on')->get();
+        return view('admin.student.edit',compact('student','branch'));
     }
 
     /**
@@ -97,6 +101,7 @@ class StudentController extends Controller
     {
         $validated = $request->validate([
             
+            'branch_id' => ['required' ],
             'name' => ['required' ],
             'gender' => ['required' ],
             'father' => ['required' ],
@@ -118,6 +123,7 @@ class StudentController extends Controller
             $student-> photo = $imageName;
             
         }
+            $student-> branch_id = $request -> get('branch_id');
             $student-> name = $request -> get('name');
             $student-> gender = $request -> get('gender');
             $student-> DOB = $request -> get('DOB');

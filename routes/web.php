@@ -30,9 +30,7 @@ use App\Http\Controllers\BranchController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', destination: 'login');
 
 Route::resource('author', AuthorController::class)->middleware('auth');
 Route::resource('batch', BatchController::class)->middleware('auth');

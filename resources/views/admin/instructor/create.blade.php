@@ -15,7 +15,7 @@
                       <!-- .fieldset -->
                       <div class="form-row">
                         <legend>Instructor Manage</legend> <!-- .form-group -->
-                        <div class="col-md-8 mb-3">                     
+                        <div class="col-md-12 mb-3">                     
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -25,8 +25,20 @@
                                 </ul>
                             </div>
                         @endif
+                      </div>
 
-                        </div>
+
+                        <!-- .form-group -->
+                        <div class="col-md-6 mb-3">
+                          <label class="control-label" for="select2-branch">branch:</label> 
+                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($branch as $branchs)
+                              <option value="{{$branchs->id}}">{{$branchs->name}}</option>
+                            @endforeach
+                          </select>
+                        </div><!-- /.form-group -->
+
+
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Instructor Name:</label> 
@@ -76,7 +88,7 @@
 
                         <!-- .form-group -->
                         <div class="col-md-4 mb-3">  <abbr title="Required">*</abbr>
-                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control" id="lbl5" name="password">
+                          <span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a><input type="password" placeholder="Enter Password" class="form-control" id="lbl5" name="password">
                         </div><!-- /.form-group -->
 
                         <div class="col-md-12 mb-3">                            

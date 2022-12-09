@@ -28,11 +28,10 @@
                         </div>
                         
                         <!-- .form-group -->
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                           
                           <label for="tf2">Cousrse Code</label>  <abbr title="Required">*</abbr>
                             <input type="text" class="form-control" id="tf2" placeholder="Enter Course code" name="code">
-                          </div>
                         </div><!-- /.form-group -->
                         
                         <!-- .form-group -->

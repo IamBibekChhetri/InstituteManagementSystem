@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
             $table->integer('course_id');
+            $table->integer('branch_id');
             $table->string('code');
             $table->string('name');
             $table->string('status');

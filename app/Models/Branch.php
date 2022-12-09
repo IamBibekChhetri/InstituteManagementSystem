@@ -9,23 +9,22 @@ class Branch extends Model
 {
     public function batch()
     {
-        return $this->belongsTo(Batch::class);
+        return $this->hasMany(Batch::class);
     }
 
     public function student()
     {
-        return $this->belongsTo(Student::class);
+        return $this->hasMany(Student::class);
     }
-
 
     public function instructor()
     {
-        return $this->belongsTo(Instructor::class);
+        return $this->hasMany(Instructor::class);
     }
 
 
     protected $fillable = [
-        'batch_id', 'student_id','instructor_id' , 'name' , 'address', 'panVat', 'phone', 'email', 'status'
+         'name' , 'address', 'panVat', 'phone', 'email', 'status'
 
     ];
 }

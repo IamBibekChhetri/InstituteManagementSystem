@@ -14,11 +14,11 @@ class Student extends Model
 
     public function branch()
     {
-        return $this->hasMany(Branch::class);
+        return $this->belongsTo(Branch::class);
     }
 
     protected $fillable = [
-        'name', 'gender','DOB' , 'father' , 'mother' ,'address', 'state','city','zipcode','nationality','phone','qualification','photo','email','password', 'status'
+        'branch_id', 'name', 'gender','DOB' , 'father' , 'mother' ,'address', 'state','city','zipcode','nationality','phone','qualification','photo','email','password', 'status'
 
     ];
 }

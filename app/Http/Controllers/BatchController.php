@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Course;
 use App\Models\Batch;
 use Illuminate\Http\Request;
@@ -27,8 +28,9 @@ class BatchController extends Controller
      */
     public function create()
     {
+        $branch = Branch::whereStatus('on')->get();
         $course = Course::whereStatus('on')->get();
-        return view('admin.batch.create',compact('course'));
+        return view('admin.batch.create',compact('course','branch'));
     }
 
     /**
@@ -40,6 +42,7 @@ class BatchController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'branch_id' => ['required'],
             'course_id' => ['required'],
             'name' => ['required', 'unique:batches'],
             'code' => ['required', 'unique:batches'],            
@@ -69,8 +72,9 @@ class BatchController extends Controller
      */
     public function edit(Batch $batch)
     {
-        $course = Course::all();
-        return view('admin.batch.edit',compact('batch','course'));
+        $course = Course::whereStatus('on')->get();
+        $branch = Branch::whereStatus('on')->get();
+        return view('admin.batch.edit',compact('batch','course','branch'));
     }
 
     /**
@@ -83,6 +87,7 @@ class BatchController extends Controller
     public function update(Request $request, Batch $batch)
     {
         $validated = $request->validate([
+            'branch_id' => ['required'],
             'course_id' => ['required'],
             'name' => ['required', 'unique:batches'],
             'code' => ['required', 'unique:batches'],            

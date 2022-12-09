@@ -9,12 +9,11 @@ class Instructor extends Model
 {
     public function branch()
     {
-        return $this->hasMany(Branch::class);
+        return $this->belongsTo(Branch::class);
     }
 
-
     protected $fillable = [
-         'name', 'age','address' , 'phone' , 'photo' ,'email', 'password', 'status'
+        'branch_id', 'name', 'age','address' , 'phone' , 'photo' ,'email', 'password', 'status'
 
     ];
 }

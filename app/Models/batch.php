@@ -14,13 +14,13 @@ class Batch extends Model
 
     public function branch()
     {
-        return $this->hasMany(Branch::class);
+        return $this->belongsTo(Branch::class);
     }
     
 
 
     protected $fillable = [
-        'course_id', 'code','name', 'status'
+        'branch_id', 'course_id', 'code','name', 'status'
 
     ];
 }

@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('photo');
             $table->string('email');
             $table->string('password');
+            $table->integer('branch_id');
             $table->string('status');
             $table->timestamps();
         });

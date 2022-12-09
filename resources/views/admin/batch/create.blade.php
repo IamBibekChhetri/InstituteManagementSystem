@@ -37,6 +37,17 @@
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
+                        
+                        <!-- .form-group -->
+                        <div class="col-md-5 mb-3">
+                          <label class="control-label" for="select2-branch">Branch:</label> 
+                          <abbr title="Required">*</abbr>
+                          <select id="select2-branch" class="form-control" data-toggle="select2" name="branch_id" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($branch as $branchs)
+                              <option value="{{$branchs->id}}">{{$branchs->name}}</option>
+                            @endforeach
+                          </select>
+                        </div><!-- /.form-group -->
 
                         <!-- .form-group -->
                         <div class="col-md-4 mb-3">

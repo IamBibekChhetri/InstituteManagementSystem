@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Instructor;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,8 @@ class InstructorController extends Controller
      */
     public function create()
     {
-
-        return view('admin.instructor.create');
+        $branch = Branch::whereStatus('on')->get();
+        return view('admin.instructor.create',compact('branch'));
     }
 
     /**
@@ -40,6 +41,7 @@ class InstructorController extends Controller
     {
         $validated = $request->validate([
             
+            'branch_id' => ['required', ],
             'name' => ['required', ],
             'age' => ['required', ],
             'address' => ['required', ],
@@ -79,8 +81,8 @@ class InstructorController extends Controller
      */
     public function edit(Instructor $instructor)
     {
-
-        return view('admin.instructor.edit',compact('instructor'));
+        $branch = Branch::whereStatus('on')->get();
+        return view('admin.instructor.edit',compact('instructor','branch'));
     }
 
     /**
@@ -94,6 +96,7 @@ class InstructorController extends Controller
     {
         $validated = $request->validate([
             
+            'branch_id' => ['required', ],
             'name' => ['required', ],
             'age' => ['required', ],
             'address' => ['required', ],
@@ -110,6 +113,7 @@ class InstructorController extends Controller
             
         }
          
+            $instructor-> branch_id = $request->get('branch_id');
             $instructor-> name = $request->get('name');
             $instructor-> address = $request->get('address');
             $instructor-> age = $request->get('age');
