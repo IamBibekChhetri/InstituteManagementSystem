@@ -134,16 +134,14 @@
                         </div><!-- /.form-group -->
 
                         <div class="col-md-6 mb-3">
-                          <div class="form-label-group">
                             <span>Email</span>
                             <abbr title="Required">*</abbr>
-                            <input type="email" class="form-control" id="fl1" placeholder="Email address" required="" name="email">
-                          </div>
+                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="email">
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
-                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control"  id="lbl5" name="password">
+                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control"  id="lbl5" name="password" placeholder="Enter Password">
                         </div><!-- /.form-group -->
 
                         <div class="col-md-12 mb-3">                            

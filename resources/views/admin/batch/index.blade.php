@@ -26,6 +26,7 @@
                         <tr>
                           <td>{{$i++}}</td>
                           <td>{{$batchs->branch->name}}</td>
+                          <td>{{$batchs->code}}</td>
                           <td>{{$batchs->name}}</td>
                           <td>{{$batchs->course->name}}</td>
                           <td>{{$batchs->status}}</td>

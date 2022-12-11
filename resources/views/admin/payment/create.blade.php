@@ -64,7 +64,7 @@
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">Transaction / Payment ID:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="transaction">
+                          <input type="text" class="form-control" id="tfDefault" name="transaction" placeholder="Enter Transaction ID">
                         </div><!-- /.form-group -->  
 
                         
