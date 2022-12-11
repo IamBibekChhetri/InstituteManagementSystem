@@ -86,10 +86,7 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        $validated = $request->validate([
-            
-            'batch_id' => ['required' ],        
-            'course_id' => ['required' ],        
+        $validated = $request->validate([     
             'name' => ['required' ],        
         ]);
         

@@ -98,10 +98,6 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $validated = $request->validate([
-            'batch_id' => ['required'],
-            'course_id' => ['required'],
-            'subject_id' => ['required'],
-            'author_id' => ['required'],
             'name' => ['required', 'unique:books'],
             'published' => ['required'],
             'details' => ['required'],

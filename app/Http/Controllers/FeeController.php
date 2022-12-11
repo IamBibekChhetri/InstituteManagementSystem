@@ -84,8 +84,6 @@ class FeeController extends Controller
     public function update(Request $request, Fee $fee)
     {
         $validated = $request->validate([
-
-            'course_id' => ['required'],
             'amount' => ['required'],
             
         ]);

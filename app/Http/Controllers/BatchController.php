@@ -87,8 +87,6 @@ class BatchController extends Controller
     public function update(Request $request, Batch $batch)
     {
         $validated = $request->validate([
-            'branch_id' => ['required'],
-            'course_id' => ['required'],
             'name' => ['required', 'unique:batches'],
             'code' => ['required', 'unique:batches'],            
         ]);

@@ -100,8 +100,6 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $validated = $request->validate([
-            
-            'branch_id' => ['required' ],
             'name' => ['required' ],
             'gender' => ['required' ],
             'father' => ['required' ],

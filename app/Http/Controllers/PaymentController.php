@@ -86,8 +86,6 @@ class PaymentController extends Controller
     public function update(Request $request, Payment $payment)
     {
         $validated = $request->validate([
-            
-            'student_id' => ['required' ],
             'payed' => ['required' ],
             'payment' => ['required' ],
             'transaction' => ['required', 'unique:payments'],

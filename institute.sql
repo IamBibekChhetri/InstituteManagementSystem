@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2022 at 10:51 AM
+-- Generation Time: Dec 09, 2022 at 12:19 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -66,9 +66,9 @@ CREATE TABLE `batches` (
 --
 
 INSERT INTO `batches` (`id`, `course_id`, `branch_id`, `code`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, '2', 'Quin Bray', 'on', '2022-12-01 05:01:25', '2022-12-01 05:01:25'),
-(2, 3, 0, '36', 'Cathleen Cervantes', 'on', '2022-12-01 05:01:31', '2022-12-01 05:01:49'),
-(3, 2, 0, '89', 'Rhoda Compton', 'on', '2022-12-01 05:01:39', '2022-12-01 05:01:39');
+(1, 1, 1, '2', 'Quin Bray', 'on', '2022-12-01 05:01:25', '2022-12-01 05:01:25'),
+(2, 3, 2, '36', 'Cathleen Cervantes', 'on', '2022-12-01 05:01:31', '2022-12-01 05:01:49'),
+(3, 2, 1, '89', 'Rhoda Compton', 'on', '2022-12-01 05:01:39', '2022-12-01 05:01:39');
 
 -- --------------------------------------------------------
 
@@ -265,8 +265,8 @@ CREATE TABLE `instructors` (
 --
 
 INSERT INTO `instructors` (`id`, `name`, `age`, `address`, `phone`, `photo`, `email`, `password`, `branch_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Jael Greene', '25', 'Justin Rosario', '98562232155', '1669891692.png', 'dejafulere@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:03:12', '2022-12-02 01:36:56'),
-(2, 'Dominic Pierce', '96', 'Alec Bullock', '9865654221212', '1669965982-png', 'cujeqy@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:03:27', '2022-12-02 01:41:22');
+(1, 'Jael Greene', '25', 'Justin Rosario', '98562232155', '1669891692.png', 'dejafulere@mailinator.com', 'Pa$$w0rd!', 1, 'on', '2022-12-01 05:03:12', '2022-12-02 01:36:56'),
+(2, 'Dominic Pierce', '96', 'Alec Bullock', '9865654221212', '1669965982-png', 'cujeqy@mailinator.com', 'Pa$$w0rd!', 2, 'on', '2022-12-01 05:03:27', '2022-12-02 01:41:22');
 
 -- --------------------------------------------------------
 
@@ -421,8 +421,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `DOB`, `father`, `mother`, `address`, `state`, `city`, `zipcode`, `nationality`, `phone`, `qualification`, `photo`, `email`, `password`, `branch_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Wesley Cooper', 'Male', '2022-07-25', 'Cara Flores', 'Hasad Dodson', 'Rebecca Hayes', 'Allen Sutton', 'Kaitlin Ellis', 'Norman Osborne', 'Simone Morales', '14', 'Whilemina Graves', '1669891735.png', 'petop@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:03:55', '2022-12-01 05:03:55'),
-(2, 'Shad Wilkinson', 'Other', '1984-02-10', 'Bryar Vazquez', 'Stella Sims', 'Bree Joyner', 'Pearl Grimes', 'Lunea Britt', 'Juliet Guzman', 'Graham Huffman', '68', 'Martha Wade', '1669891751.png', 'pilut@mailinator.com', 'Pa$$w0rd!', 0, 'on', '2022-12-01 05:04:11', '2022-12-01 05:04:11');
+(1, 'Wesley Cooper', 'Male', '2022-07-25', 'Cara Flores', 'Hasad Dodson', 'Rebecca Hayes', 'Allen Sutton', 'Kaitlin Ellis', 'Norman Osborne', 'Simone Morales', '14', 'Whilemina Graves', '1669891735.png', 'petop@mailinator.com', 'Pa$$w0rd!', 1, 'on', '2022-12-01 05:03:55', '2022-12-01 05:03:55'),
+(2, 'Shad Wilkinson', 'Other', '1984-02-10', 'Bryar Vazquez', 'Stella Sims', 'Bree Joyner', 'Pearl Grimes', 'Lunea Britt', 'Juliet Guzman', 'Graham Huffman', '68', 'Martha Wade', '1669891751.png', 'pilut@mailinator.com', 'Pa$$w0rd!', 2, 'on', '2022-12-01 05:04:11', '2022-12-01 05:04:11');
 
 -- --------------------------------------------------------
 

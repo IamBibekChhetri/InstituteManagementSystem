@@ -96,7 +96,6 @@ class UserController extends Controller
         $validated = $request->validate([
             
             'photo' => ['required' ],
-            'user_role_id' => ['required' ],
             'name' => ['required' ],
             'address' => ['required' ],
             'phone' => ['required', 'unique:users'],

@@ -87,12 +87,6 @@ class EnrollmentController extends Controller
      */
     public function update(Request $request, Enrollment $enrollment)
     {
-        $validated = $request->validate([
-            
-            'course_id' => ['required'],
-            'student_id' => ['required'],
-            
-        ]);
         
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();

@@ -95,8 +95,6 @@ class InstructorController extends Controller
     public function update(Request $request, Instructor $instructor)
     {
         $validated = $request->validate([
-            
-            'branch_id' => ['required', ],
             'name' => ['required', ],
             'age' => ['required', ],
             'address' => ['required', ],
