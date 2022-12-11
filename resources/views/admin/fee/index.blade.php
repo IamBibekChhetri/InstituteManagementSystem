@@ -28,8 +28,7 @@
                           <td>{{$fees->status}}</td>
                           <td class="centre" style="display:flex;">
 
-                          
-                          @if($fees['status']=='on')                              
+                            @if($fees['status']=='on')                              
                               <a href="{{ url('fee/offStatus',$fees->id) }}"><button class="btn btn-warning btn-sm" type="reset">off</button></a>
 
                                 @else($fees['status']=='off') 
@@ -37,7 +36,7 @@
 
                             @endif
                              &nbsp;
-                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showFeeModel"><i class="fas fa-eye"></i></button>
+                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewFee{{$fees->id}}"><i class="fas fa-eye"></i></button>
                             &nbsp;
                             <a href="{{ route('fee.edit',$fees->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
@@ -48,9 +47,7 @@
                             </form>
                           </td>
                         </tr>
-                        
-
-                        <div class="modal fade" id="showFeeModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                        <div class="modal fade" id="viewFee{{$fees->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -80,16 +77,14 @@
                               
                               <div class="modal-footer">
                               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                            </form>
                             </div>
                             </div>
                           </div>
                         </div>
-
-
+                  
                         @endforeach
                       </tbody>
                     </table><!-- /.table -->
-                  </div><!-- /.card-body -->
+                    </div><!-- /.card-body -->  
 </div><!-- /.card -->
 @endsection

@@ -38,7 +38,7 @@
 
                             @endif
                              &nbsp;
-                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showCourseModel"><i class="fas fa-eye"></i></button>
+                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewCourse{{$courses->id}}"><i class="fas fa-eye"></i></button>
                             &nbsp;
                             <a href="{{ route('course.edit',$courses->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
@@ -51,7 +51,7 @@
                         </tr>
                         
 
-                        <div class="modal fade" id="showCourseModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                        <div class="modal fade" id="viewCourse{{$courses->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">

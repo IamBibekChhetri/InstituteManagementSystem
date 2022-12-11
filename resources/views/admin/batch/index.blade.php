@@ -40,7 +40,7 @@
 
                             @endif
                              &nbsp;
-                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showBatchModel"><i class="fas fa-eye"></i></button> 
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewBatch{{$batchs->id}}"><i class="fas fa-eye"></i></button> 
                             &nbsp;
                             <a href="{{ route('batch.edit',$batchs->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
@@ -52,7 +52,7 @@
                           </td>
                         </tr>
 
-                        <div class="modal fade" id="showBatchModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                        <div class="modal fade" id="viewBatch{{$batchs->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                         
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

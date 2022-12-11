@@ -43,7 +43,7 @@
 
                             @endif
                             &nbsp;
-                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showInstructorModel"><i class="fas fa-eye"></i></button>
+                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewInstructor{{$instructors->id}}"><i class="fas fa-eye"></i></button>
                             &nbsp;
                             <a href="{{ route('instructor.edit',$instructors->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
@@ -56,7 +56,7 @@
                         </tr>
                         
 
-                        <div class="modal fade" id="showInstructorModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                        <div class="modal fade" id="viewInstructor{{$instructors->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -68,6 +68,13 @@
                               
                               
                               <div class="modal-body">                             
+
+                              <div class="form-group">
+                                  <label>Instructor Name:</label><br>
+                                  {{$instructors->name}}
+                              </div>
+                                
+                                <hr>
 
                               <div class="form-group">
                                   <label>Instructor Name:</label><br>

@@ -35,7 +35,7 @@
                                   <a href="{{ url('author/onStatus',$authors->id) }}"><button class="btn btn-warning btn-sm" type="reset">on</button></a>
                             @endif
                              &nbsp;
-                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showAuthorModel" ><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewAuthor{{$authors->id}}" ><i class="fas fa-eye"></i></button>
                             &nbsp;
                             <a href="{{ route('author.edit',$authors->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
@@ -47,7 +47,7 @@
                           </td>
                         </tr>
 
-                        <div class="modal fade" id="showAuthorModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                        <div class="modal fade" id="viewAuthor{{$authors->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">

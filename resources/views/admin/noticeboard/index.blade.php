@@ -43,7 +43,7 @@
 
                             @endif
                             &nbsp;
-                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#showNoticeboardModel"><i class="fas fa-eye"></i></button>
+                             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewNoticeboard{{$noticeboards->id}}"><i class="fas fa-eye"></i></button>
                             &nbsp;
                             <a href="{{ route('noticeboard.edit',$noticeboards->id) }}"><button class="btn btn-primary btn-sm" ><i class="fas fa-edit"></i></button></a>  
                             &nbsp;
@@ -55,7 +55,7 @@
                           </td>
                           </tr>
 
-                          <div class="modal fade" id="showNoticeboardModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                          <div class="modal fade" id="viewNoticeboard{{$noticeboards->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
                               <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
