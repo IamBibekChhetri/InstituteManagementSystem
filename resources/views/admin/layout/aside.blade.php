@@ -48,6 +48,23 @@
             </li>
 
             
+            
+            
+<!-- ------------------------------------ Faculty --------------------------------------------------         -->
+           
+            <li class="menu-item has-child">
+              <a href="#" class="menu-link"><i class="fa fa-door-open text-info"></i>  <span class="menu-text">Faculty</span></a> <!-- child menu -->
+              <ul class="menu">
+                <li class="menu-item">
+                  <a href="{{asset('faculty/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Faculty </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{asset('faculty')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Faculty </a>
+                </li>                
+              </ul>
+            </li>
+
+            
 <!-- ------------------------------------ Course --------------------------------------------------         -->
             
             <li class="menu-item has-child">
@@ -71,6 +88,35 @@
                 </li>
                 <li class="menu-item">
                   <a href="{{asset('batch')}}" class="menu-link"><i class="fa fa-eye text-danger"></i>  Batch</a>
+                </li>                
+              </ul>
+            </li>
+
+
+<!-- --------------------------------------- Class ----------------------------------------------  -->
+            <li class="menu-item has-child">
+              <a href="#" class="menu-link"><i class="fa fa-address-book text-primary"></i> <span class="menu-text">Class </span></a> <!-- child menu -->
+              <ul class="menu">
+                <li class="menu-item">
+                <a href="{{asset('classname/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Class </a>
+                </li>
+                <li class="menu-item">
+                <a href="{{asset('classname')}}" class="menu-link"><i class="fa fa-eye text-danger"></i> Class </a>
+                </li>                
+              </ul>
+            </li>
+
+
+
+<!-- --------------------------------------- Class Room ----------------------------------------------  -->
+            <li class="menu-item has-child">
+              <a href="#" class="menu-link"><i class="fa fa-users text-danger"></i> <span class="menu-text">Class Room </span></a> <!-- child menu -->
+              <ul class="menu">
+                <li class="menu-item">
+                  <a href="{{asset('classroom/create')}}" class="menu-link"><i class="fa fa-plus text-success"></i> Class Room </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{asset('classroom')}}" class="menu-link"><i class="fa fa-eye text-danger"></i> Class Room </a>
                 </li>                
               </ul>
             </li>

@@ -21,7 +21,7 @@
                     </div><!-- /metric column -->
                   </div>
 
-                    <div class="col-lg-3">
+                  <div class="col-lg-3">
                       <!-- .metric -->
                       <a href="{{asset('batch')}}" class="metric metric-bordered align-items-center">     
                         <h2 class="metric-label">Total Batch </h2>                   

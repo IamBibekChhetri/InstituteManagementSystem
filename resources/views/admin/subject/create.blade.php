@@ -8,7 +8,6 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  <div class="card-body"><a href="{{asset('subject')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                     <!-- .form -->
                     <form action="{{route('subject.store')}}" method="POST">
                     @csrf
@@ -63,12 +62,13 @@
                         </div><!-- /.form-group -->
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
+                      <div class="card-body"><a href="{{asset('subject')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
                       </div>
+                      </div>
                     </form><!-- /.form -->
-                  </div><!-- /.card-body -->
-                  <!-- .card-body -->
+                  
                 </div>
 </div>
 

@@ -8,7 +8,6 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  <div class="card-body"><a href="{{asset('noticeboard')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                     <!-- .form -->
                     <form action="{{route('noticeboard.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -45,7 +44,7 @@
                           <label for="tf3">Attachement</label>
                           <abbr title="Required">*</abbr>
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="tf3" name="attachement" multiple> <label class="custom-file-label" for="tf3">Choose file</label>
+                            <input type="file" class="custom-file-input" id="tf3" name="attachement[]" multiple> <label class="custom-file-label" for="tf3">Choose file</label>
                           </div>
                         </div><!-- /.form-group -->
 
@@ -78,12 +77,13 @@
                         </div><!-- /.form-group -->
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
+                      <div class="card-body"><a href="{{asset('noticeboard')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
                       </div>
+                      </div>
                     </form><!-- /.form -->
-                  </div><!-- /.card-body -->
-                  <!-- .card-body -->
+                  
                 </div>
 </div>
 

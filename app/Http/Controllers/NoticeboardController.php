@@ -16,7 +16,7 @@ class NoticeboardController extends Controller
     {
         $i = 1;
         $noticeboard = Noticeboard::all();
-        return view('admin.noticeboard.index', compact('i','noticeboard'));
+        return view('admin.noticeboard.index',compact('i','noticeboard'));
     }
 
     /**
@@ -41,20 +41,24 @@ class NoticeboardController extends Controller
             
             'title' => ['required'],
             'priority' => ['required'],
-            'attachment' => ['required'],
+            // 'attachment' => ['required'],
             'start' => ['required'],
             'end' => ['required'],
         ]);
-
-        $image = time().'.'.$request->file('attachement')->getClientOriginalExtension();
-        move_uploaded_file($request->attachement, 'public/image/'.$image);
-        $noticeboard= Noticeboard::create($request->all());
+        $noticeboard = new Noticeboard();
+        foreach($request->attachement as $imageName => $imageItem){
+        $image = time().'.'.$imageItem->getClientOriginalExtension();
+        move_uploaded_file($imageItem, 'public/image/noticeboard/'.$image);
         $noticeboard->attachement = $image;
-        $noticeboard->save();        
+        }
+        $noticeboard -> title = $request->get('title');
+        $noticeboard -> priority = $request->get('priority');
+        $noticeboard -> status = $request->get('status');
+
+        $noticeboard->save();
         return redirect()->route('noticeboard.index')
             ->with('success','Noticeboard created successfully.');
-    }
-
+}
     /**
      * Display the specified resource.
      *

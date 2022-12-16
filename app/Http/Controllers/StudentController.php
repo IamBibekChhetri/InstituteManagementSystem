@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batch;
+use App\Models\Faculty;
 use App\Models\Branch;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -27,8 +29,10 @@ class StudentController extends Controller
      */
     public function create()
     {
+        $faculty = Faculty::whereStatus('on')->get();
+        $batch = Batch::whereStatus('on')->get();
         $branch = Branch::whereStatus('on')->get();
-        return view('admin.student.create',compact('branch'));
+        return view('admin.student.create',compact('branch','faculty','batch'));
     }
 
     /**
@@ -86,8 +90,10 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
+        $faculty = Faculty::whereStatus('on')->get();
+        $batch = Batch::whereStatus('on')->get();
         $branch = Branch::whereStatus('on')->get();
-        return view('admin.student.edit',compact('student','branch'));
+        return view('admin.student.edit',compact('student','branch','faculty','batch'));
     }
 
     /**

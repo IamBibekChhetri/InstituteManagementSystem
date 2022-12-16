@@ -8,7 +8,6 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  <div class="card-body"><a href="{{asset('instructor')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                     <!-- .form -->
                     <form action="{{route('instructor.update',$instructor->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -92,12 +91,13 @@
                         
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
+                      <div class="card-body"><a href="{{url('instructor')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
                       </div>
+                      </div>
                     </form><!-- /.form -->
-                  </div><!-- /.card-body -->
-                  <!-- .card-body -->
+                  
                 </div>
 </div>
 

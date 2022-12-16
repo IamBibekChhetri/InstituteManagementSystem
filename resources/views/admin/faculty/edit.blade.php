@@ -8,13 +8,14 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                    <!-- .form -->
-                    <form action="{{route('fee.update',$fee->id)}}" method="POST">
+                  <!-- .form -->
+                  <form action="{{route('faculty.update',$faculty->id)}}" method="POST">
                         @csrf
                         @method('PUT')
-                      <!-- .fieldset -->
+                      <!-- .Row -->
                       <div class="row">
-                        <legend>Fee Adding Form</legend> <!-- .form-group -->
+                        <legend>Author Manage</legend> <!-- .form-group -->
+                        
                         <div class="col-md-8 mb-3">                    
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -26,37 +27,35 @@
                             </div>
                         @endif
                         </div>
+                        
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
-                          <label class="control-label" for="select2-course">Course:</label> 
-                          <select id="select2-course" class="form-control" data-toggle="select2" name="course_id" data-placeholder="Select a state" data-allow-clear="true">
-                            @foreach ($course as $courses)
-                              <option value="{{$courses->id}}">{{$courses->name}}</option>
+                          <label class="control-label" for="select2-branch">branch:</label> 
+                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($branch as $branchs)
+                              <option value="{{$branchs->id}}">{{$branchs->name}}</option>
                             @endforeach
                           </select>
                         </div><!-- /.form-group -->
 
+
                         <!-- .form-group -->
-                        <div class="col-md-6 mb-3">
-                          <label for="tf2">Amount:</label>
-                          <div class="custom-number">
-                            <input type="number" class="form-control" id="tf2"  name="amount" value="{{$fee->amount}}">
-                          </div>
+                        <div class="col-md-12 mb-3">
+                          <label class="col-form-label" for="tfDefault">Faculty Name</label> 
+                          <input type="text" class="form-control" id="tfDefault" name="name" value="{{$faculty->name}}">
                         </div><!-- /.form-group -->
-                        
+  
                        
-                        
-                      </div><!-- /.fieldset -->
+                      </div><!-- /.Row -->
                       <div class="form-actions">
-                      <div class="card-body"><a href="{{url('fee')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
+                        <div class="card-body"><a href="{{url('faculty')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
                       </div>
                       </div>
                     </form><!-- /.form -->
-                  
                 </div>
-</div>
-
-
+              </div>
+              
+              
 @endsection 

@@ -8,7 +8,6 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  <div class="card-body"><a href="{{url('enrollment')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                     <!-- .form -->
                     <form action="{{route('enrollment.update', $enrollment->id)}}" method="POST">
                         @csrf
@@ -124,12 +123,13 @@
 
                         </div><!-- /.Row group -->
                         <div class="form-actions">
+                        <div class="card-body"><a href="{{url('enrollment')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Update</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
                       </div>
+                      </div>
                     </form><!-- /.form -->
-                  </div><!-- /.card-body -->
-                  <!-- .card-body -->
+                 
                 </div>
 </div>
 

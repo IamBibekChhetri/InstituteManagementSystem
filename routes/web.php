@@ -18,6 +18,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\ClassNameController;
+use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\FacultyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +52,9 @@ Route::resource('user', UserController::class)->middleware('auth');
 Route::resource('companyInfo', CompanyInfoController::class)->middleware('auth');
 Route::resource('enrollment', EnrollmentController::class)->middleware('auth');
 Route::resource('branch', BranchController::class)->middleware('auth');
+Route::resource('classname', ClassNameController::class)->middleware('auth');
+Route::resource('classroom', ClassRoomController::class)->middleware('auth');
+Route::resource('faculty', FacultyController::class)->middleware('auth');
 
 
 Auth::routes();

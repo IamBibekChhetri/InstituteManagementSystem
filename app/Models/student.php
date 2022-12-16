@@ -18,7 +18,11 @@ class Student extends Model
     }
 
     protected $fillable = [
-        'branch_id', 'name', 'gender','DOB' , 'father' , 'mother' ,'address', 'state','city','zipcode','nationality','phone','qualification','photo','email','password', 'status'
+        'branch_id', 'faculty_id', 'batch_id', 'name', 'gender', 'qualification', 'status', 'photo', 'email', 'password', 'DOB', 'phone',
+        'fatherName', 'fatherEmail', 'fatherPhone', 'fatherOccupation', 'fatherOffice', 'fatherDesignation',
+        'motherName', 'motherEmail', 'motherPhone', 'motherOccupation', 'motherOffice', 'motherDesignation',
+        't-country', 't-state', 't-city', 't-zipcode', 't-nationality',
+        'p-country', 'p-state', 'p-city', 'p-zipcode', 'p-nationality',
 
     ];
 }

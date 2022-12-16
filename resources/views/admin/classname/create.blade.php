@@ -8,13 +8,13 @@
                 </div><!-- .card -->
                 <div id="base-style" class="card">
                   <!-- .card-body -->
-                  
+                  <div class="card-body">
                     <!-- .form -->
-                    <form action="{{route('author.store')}}" method="POST">
+                    <form action="{{route('classname.store')}}" method="POST">
                     @csrf
                       <!-- .fieldset -->
-                      <fieldset>
-                        <legend>Author Manage</legend> <!-- .form-group -->
+                      <div class="row page-secton">
+                        <legend>Class Manage</legend> <!-- .form-group -->
                         
                         <div class="col-md-8 mb-3"> 
                         @if ($errors->any())
@@ -27,26 +27,38 @@
                           </div>
                         @endif
                         </div>
+
                         <!-- .form-group -->
-                        <div class="col-md-12 mb-3">
-                        <label for="author">Author Name</label> 
+                        <div class="col-md-6 mb-3">
+                          <label class="control-label" for="select2-branch">branch:</label> 
+                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($branch as $branchs)
+                              <option value="{{$branchs->id}}">{{$branchs->name}}</option>
+                            @endforeach
+                          </select>
+                        </div><!-- /.form-group -->
+
+                        <!-- .form-group -->
+                        <div class="col-md-6 mb-3">
+                        <label for="class">Class Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder=" Enter Author Name">
+                          <input type="text" class="form-control" id="tfDefault" name="name" placeholder=" Enter Class Name">
                         </div><!-- /.form-group -->
   
-                        <div class="col-md-6 mb-3">                            
+                        <div class="col-md-12 mb-3">                            
                             <span>Is Active:</span> <!-- .switcher-control -->
                             <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
                         </div><!-- /.form-group -->
-                      </fieldset><!-- /.fieldset -->
+                      </div><!-- /.row -->
                       <div class="form-actions">
-                      <div class="card-body"><a href="{{asset('author')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
+                      <div class="card-body"><a href="{{asset('classname')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
                       </div>
                       </div>
                     </form><!-- /.form -->
-                 
+                  </div><!-- /.card-body -->
+                  <!-- .card-body -->
                 </div>
 </div>
 
