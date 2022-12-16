@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->integer('batch_id');
-            $table->integer('student_id');
-            $table->integer('instructor_id');
             $table->string('name');
             $table->string('address');
             $table->string('panVat');

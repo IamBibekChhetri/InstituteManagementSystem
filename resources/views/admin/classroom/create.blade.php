@@ -13,7 +13,7 @@
                     <form action="{{route('classroom.store')}}" method="POST">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="form-row">
+                      <div class="row page-section">
                         <legend>Class Room Manage</legend> <!-- .form-group -->
                          
                         <div class="col-md-12 mb-3">

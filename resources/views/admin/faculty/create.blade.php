@@ -13,7 +13,7 @@
                     <form action="{{route('faculty.store')}}" method="POST">
                     @csrf
                       <!-- .fieldset -->
-                      <fieldset>
+                      <div class="row page-section">
                         <legend>Author Manage</legend> <!-- .form-group -->
                         
                         <div class="col-md-8 mb-3"> 
@@ -50,7 +50,7 @@
                             <span>Is Active:</span> <!-- .switcher-control -->
                             <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
                         </div><!-- /.form-group -->
-                      </fieldset><!-- /.fieldset -->
+                      </div><!-- /.fieldset -->
                       <div class="form-actions">
                       <div class="card-body"><a href="{{asset('faculty')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>

@@ -9,7 +9,7 @@
                     <form action="{{route('batch.store')}}" method="POST">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="row">
+                      <div class="row page-section">
                         <legend>Batch Manage</legend> <!-- .form-group -->
                         <div class="col-md-12 mb-3">                        
                         @if ($errors->any())

@@ -12,7 +12,7 @@
                     <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="row">
+                      <div class="row page-section">
                         <legend>User Manage</legend> <!-- .form-group -->
                         <div class="col-md-8 mb-3">                                       
                         @if ($errors->any())

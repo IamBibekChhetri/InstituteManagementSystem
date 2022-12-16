@@ -12,7 +12,7 @@
                     <form action="{{route('instructor.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="form-row">
+                      <div class="row page-section">
                         <legend>Instructor Manage</legend> <!-- .form-group -->
                         <div class="col-md-12 mb-3">                     
                         @if ($errors->any())

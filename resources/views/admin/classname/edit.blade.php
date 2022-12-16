@@ -14,7 +14,7 @@
                         @csrf
                         @method('PUT')
                       <!-- .Row -->
-                      <div class="row">
+                      <div class="row page-section">
                         <legend>Author Manage</legend> <!-- .form-group -->
                         
                         <div class="col-md-8 mb-3">                    

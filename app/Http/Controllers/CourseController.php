@@ -86,7 +86,7 @@ class CourseController extends Controller
             
             'name' => ['required', 'unique:courses'],
             'code' => ['required', 'unique:courses'],
-            'detail' => ['required', 'unique:courses'],
+            'detail' => ['required',],
             'duration' => ['required', 'unique:courses'],
         ]);
 

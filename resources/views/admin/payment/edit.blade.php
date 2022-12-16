@@ -13,7 +13,7 @@
                         @csrf
                         @method('PUT')
                       <!-- .fieldset -->
-                      <div class="row">
+                      <div class="row page-section">
                       <div class="col-md-8 mb-3">
                         <legend>Payment Adding Form</legend> <!-- .form-group -->
                         @if ($errors->any())

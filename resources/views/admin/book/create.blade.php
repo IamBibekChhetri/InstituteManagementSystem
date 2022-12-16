@@ -12,7 +12,7 @@
                     <form action="{{route('book.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="form-row">
+                      <div class="row page-section">
                         <legend>Book Manage</legend> <!-- .form-group -->
                          
                         <div class="col-md-8 mb-3">

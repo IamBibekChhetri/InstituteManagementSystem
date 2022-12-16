@@ -13,7 +13,7 @@
                         @csrf
                         @method('PUT')
                       <!-- .fieldset -->
-                      <div class="row">
+                      <div class="row page-section">
                         <legend>Branch Manage</legend> <!-- .form-group -->
                                                 
                         @if ($errors->any())

@@ -12,7 +12,7 @@
                     <form action="{{route('branch.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="form-row">
+                      <div class="row page-section">
                         <legend>Branch Manage</legend> <!-- .form-group -->
                         <div class="col-md-9 mb-3">                     
                         @if ($errors->any())

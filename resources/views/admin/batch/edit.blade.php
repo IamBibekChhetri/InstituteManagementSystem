@@ -14,7 +14,7 @@
                         @csrf
                         @method('PUT')
                       <!-- .fieldset -->
-                      <div class="row">
+                      <div class="row page-section">
                         <legend>Batch Manage</legend> <!-- .form-group -->
                         <div class="col-md-10 mb-3">                  
                         @if ($errors->any())

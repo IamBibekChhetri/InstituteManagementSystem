@@ -12,7 +12,7 @@
                     <form action="{{route('fee.store')}}" method="POST">
                     @csrf
                       <!-- .fieldset -->
-                      <div class="row">
+                      <div class="row page-section">
                         <legend>Fee Adding Form</legend> <!-- .form-group -->
                         <div class="col-md-8 mb-3">                   
                         @if ($errors->any())
