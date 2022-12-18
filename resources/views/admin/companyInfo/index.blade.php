@@ -5,7 +5,7 @@
 <header class="page-cover">
               <div class="text-center">
                 @foreach( $company as $companys)
-               <img src="{{asset('public/image/'.$companys->photo)}}" alt=""><br>
+               <img src="{{asset('public/image/company/'.$companys->photo)}}" alt="" height="100px"><br>
                 <p class="text-muted"><sub> Representative: {{$companys->rname}}</sub></p>
                 <h2 class="h4 mt-2 mb-0"> {{$companys->cname}}</h2><hr>
                 <p class="text-muted">Pan No: {{$companys->pan}}</p>

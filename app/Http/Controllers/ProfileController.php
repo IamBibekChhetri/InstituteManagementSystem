@@ -26,8 +26,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        $profile = User::whereStatus('on')->get();
-        return view('admin.profile.create',compact('profile'));
+        //
     }
 
     /**
@@ -75,8 +74,8 @@ class ProfileController extends Controller
     {
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/'.$profile->photo);
-        move_uploaded_file($request->photo, 'public/image/'.$imageName); 
+        unlink('public/image/user/'.auth()->user()->photo);
+        move_uploaded_file($request->photo, 'public/image/user'.$imageName); 
             
             $profile-> photo = $imageName;
             

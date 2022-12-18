@@ -44,6 +44,7 @@ Route::resource('instructor', InstructorController::class)->middleware('auth');
 Route::resource('noticeboard', NoticeboardController::class)->middleware('auth');
 Route::resource('payment', PaymentController::class)->middleware('auth');
 Route::resource('student', StudentController::class)->middleware('auth');
+Route::post('student/resetPassword/{id}', 'StudentController@resetPassword')->name('student.resetPassword');
 Route::resource('subject', SubjectController::class)->middleware('auth');
 Route::resource('dashboard', DashboardController::class)->middleware('auth');
 Route::resource('profile', ProfileController::class)->middleware('auth');
@@ -118,6 +119,27 @@ Route::get('user_role/offStatus/{id}',[App\Http\Controllers\userRoleController::
 // ==================================== Branches Status Update Route ====================
 Route::get('branch/onStatus/{id}',[App\Http\Controllers\BranchController::class, 'onStatus']);
 Route::get('branch/offStatus/{id}',[App\Http\Controllers\BranchController::class, 'offStatus']);
+
+
+
+
+// ==================================== Faculty Status Update Route ====================
+Route::get('faculty/onStatus/{id}',[App\Http\Controllers\FacultyController::class, 'onStatus']);
+Route::get('faculty/offStatus/{id}',[App\Http\Controllers\FacultyController::class, 'offStatus']);
+
+
+
+
+// ==================================== Class Name Status Update Route ====================
+Route::get('classname/onStatus/{id}',[App\Http\Controllers\ClassNameController::class, 'onStatus']);
+Route::get('classname/offStatus/{id}',[App\Http\Controllers\ClassNameController::class, 'offStatus']);
+
+
+
+
+// ==================================== Class Room Status Update Route ====================
+Route::get('classroom/onStatus/{id}',[App\Http\Controllers\ClassRoomController::class, 'onStatus']);
+Route::get('classroom/offStatus/{id}',[App\Http\Controllers\ClassRoomController::class, 'offStatus']);
 
 
 

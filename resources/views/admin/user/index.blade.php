@@ -27,7 +27,7 @@
                         @foreach ($user as $users)
                         <tr>
                           <td>{{$i++}}</td>
-                          <td><img src="{{asset('public/image/'.$users->photo)}}" alt="" height="50px"></td>
+                          <td><img src="{{asset('public/image/user/'.$users->photo)}}" alt="" height="50px"></td>
                           <td>{{$users->user_role->role}}</td>
                           <td>{{$users->name}}</td>
                           <td>{{$users->address}}</td>

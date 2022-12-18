@@ -85,7 +85,10 @@ class AuthorController extends Controller
         
         $author->update($request->all());
         return redirect()->route('author.index')
-            ->with('success','Author Updated successfully.');
+        ->with([
+            'icon' => 'success',
+            'message' => 'Author Created successfully'
+        ]);
     }
 
     /**
@@ -99,13 +102,12 @@ class AuthorController extends Controller
         $author->delete();
        
         return redirect()->route('author.index')
-                        ->with('success','Author deleted successfully');
+            ->with('success','Author deleted successfully');
     }
 
     // ================== Status Update Controller ================ 
-
-    public function onStatus(Request $request, $id)
-    {
+        public function onStatus(Request $request, $id)
+        {
         $status = Author::find($id);
         $status-> status = 'on';
         $status->save();

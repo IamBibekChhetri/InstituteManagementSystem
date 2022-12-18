@@ -48,11 +48,10 @@ class StudentController extends Controller
             'branch_id' => ['required' ],
             'name' => ['required' ],
             'gender' => ['required' ],
-            'father' => ['required' ],
-            'mother' => ['required' ],
-            'address' => ['required' ],
-            'state' => ['required' ],
-            'city' => ['required' ],
+            'fatherName' => ['required' ],
+            'motherName' => ['required' ],
+            't-state' => ['required' ],
+            't-city' => ['required' ],
             'photo' => ['required' ],
             'qualification' => ['required' ],
             'email' => ['required' ],
@@ -61,7 +60,7 @@ class StudentController extends Controller
         ]);
         
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        move_uploaded_file($request->photo, 'public/image/'.$image);
+        move_uploaded_file($request->photo, 'public/image/student/'.$image);
         $student= Student::create($request->all());
         $student->photo = $image;
         $student->save();
@@ -82,6 +81,18 @@ class StudentController extends Controller
         
     }
 
+    
+    public function resetPassword(Request $request, $id){
+        
+        $student = Student::find($id);
+        $student->password = bcrypt($request->new_password);
+        $student->save();
+        return redirect()->route('student.index')
+         ->with([
+            'icon' => 'success',
+            'message' => 'Password changed successfully'
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,21 +119,18 @@ class StudentController extends Controller
         $validated = $request->validate([
             'name' => ['required' ],
             'gender' => ['required' ],
-            'father' => ['required' ],
-            'mother' => ['required' ],
-            'address' => ['required' ],
-            'state' => ['required' ],
-            'city' => ['required' ],
+            'fatherName' => ['required' ],
+            'motherName' => ['required' ],
+            't-state' => ['required' ],
+            't-city' => ['required' ],
             'qualification' => ['required' ],
-            'email' => ['required' ],
-            'password' => ['required' ],
             'phone' => ['required', 'unique:students'],
         ]);
 
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/'.$student->photo);
-        move_uploaded_file($request->photo, 'public/image/'.$imageName); 
+        unlink('public/image/student/'.$student->photo);
+        move_uploaded_file($request->photo, 'public/image/student/'.$imageName); 
             
             $student-> photo = $imageName;
             

@@ -50,7 +50,7 @@ class UserController extends Controller
         ]);
         
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        move_uploaded_file($request->photo, 'public/image/'.$image);
+        move_uploaded_file($request->photo, 'public/image/user/'.$image);
         $user= User::create($request->all());
         $user->photo = $image;
         $user->save();
@@ -103,8 +103,8 @@ class UserController extends Controller
         ]);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/'.$user->photo);
-        move_uploaded_file($request->photo, 'public/image/'.$imageName); 
+        unlink('public/image/user/'.$user->photo);
+        move_uploaded_file($request->photo, 'public/image/user/'.$imageName); 
             
             $user-> photo = $imageName;
             

@@ -27,7 +27,7 @@
                         <tr>
                           <td>{{$i++}}</td>
                           <td>{{$instructors->branch->name}}</td>
-                          <td><img src="{{asset('public/image/'.$instructors->photo)}}" alt="" height="50px"></td>
+                          <td><img src="{{asset('public/image/instructor/'.$instructors->photo)}}" alt="" height="50px"></td>
                           <td>{{$instructors->name}}</td>
                           <td>{{$instructors->phone}}</td>
                           <td>{{$instructors->address}}</td>

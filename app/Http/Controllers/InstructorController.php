@@ -53,7 +53,7 @@ class InstructorController extends Controller
 
 
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        move_uploaded_file($request->photo, 'public/image/'.$image);
+        move_uploaded_file($request->photo, 'public/image/instructor/'.$image);
         $instructor= Instructor::create($request->all());
         $instructor->photo = $image;
         $instructor->save();
@@ -104,8 +104,8 @@ class InstructorController extends Controller
         ]);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/'.$instructor->photo);
-        move_uploaded_file($request->photo, 'public/image/'.$imageName); 
+        unlink('public/image/instructor/'.$instructor->photo);
+        move_uploaded_file($request->photo, 'public/image/instructor/'.$imageName); 
             
             $instructor-> photo = $imageName;
             

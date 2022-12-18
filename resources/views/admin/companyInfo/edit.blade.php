@@ -16,7 +16,7 @@
                       <!-- .fieldset -->
                       <div class="row">
                         <legend> Company Information Manage </legend> <!-- .form-group -->
-                        
+                        <div class="col-md-12 mb-3">
                         @if ($errors->any())
                               <div class="alert alert-danger">
                                   <ul>
@@ -26,14 +26,14 @@
                                   </ul>
                               </div>
                           @endif
-
+                          </div>
 
                         <!-- .form-group -->
                         <div class="col-md-7 mb-3">
                           <label for="tf3"> Company Photo</label>  <abbr title="Required">*</abbr>
                           <div class="custom-file">    <abbr title="Required">*</abbr>                         
                             <input type="file" class="custom-file-input" id="tf3" name="photo" value="{{$company->photo}}"><label class="custom-file-label" for="tf3">Choose file</label>
-                            <img src="../../public/image/{{ $company->photo }}" height="50px" width="50px">
+                            <img src="../../public/image/company/{{ $company->photo }}" height="50px" width="50px">
                           </div>
                         </div><!-- /.form-group -->                        
 

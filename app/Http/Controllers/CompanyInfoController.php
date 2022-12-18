@@ -77,15 +77,15 @@ class CompanyInfoController extends Controller
             'rname' => ['required'],           
             'photo' => ['required'],           
             'address' => ['required'],           
-            'phone' => ['required', 'unique:company_infos'],           
-            'pan' => ['required', 'unique:company_infos'],           
-            'email' => ['required', 'unique:company_infos'],           
+            'phone' => ['required'],           
+            'pan' => ['required'],           
+            'email' => ['required'],           
         ]);
 
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/'.$company->photo);
-        move_uploaded_file($request->photo, 'public/image/'.$imageName); 
+        unlink('public/image/company/'.$company->photo);
+        move_uploaded_file($request->photo, 'public/image/company/'.$imageName); 
             
             $company-> photo = $imageName;
             

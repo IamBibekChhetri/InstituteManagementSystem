@@ -23,7 +23,7 @@
                           <div class="custom-file">                            
                             <label class="custom-file-label" for="tf3">Photo</label>
                             <input type="file" class="custom-file-input" id="tf3" name="photo">
-                            <img src="../../public/image/{{ $user->photo }}" height="50px" width="50px">
+                            <img src="../../public/image/user/{{ $user->photo }}" height="50px" width="50px">
                           </div>
                         </div><!-- /.form-group -->                        
 

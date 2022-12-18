@@ -31,7 +31,7 @@
                           <label for="tf3"> User Image</label>
                           <div class="custom-file">                            
                             <input type="file" class="custom-file-input" id="tf3" name="photo"> <label class="custom-file-label" for="tf3">Choose file</label>
-                            <img src="../../public/image/{{ $user->photo }}" height="50px" width="50px">
+                            <img src="../../public/image/user/{{ $user->photo }}" height="50px" width="50px">
                           </div>
                         </div><!-- /.form-group -->                        
 

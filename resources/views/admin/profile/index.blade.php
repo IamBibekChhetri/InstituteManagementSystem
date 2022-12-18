@@ -4,7 +4,7 @@
 <!-- .page-cover -->
 <header class="page-cover">
               <div class="text-center">
-                <a href="{{route('profile.edit',auth()->user()->id)}}" class="user-avatar user-avatar-xl"><img src="https://ui-avatars.com/api/?name=auth()->user()->name{{asset('public/image/'.auth()->user()->photo)}}" alt=""></a>
+                <a href="{{route('profile.edit',auth()->user()->id)}}" class="user-avatar user-avatar-xl"><img src="https://ui-avatars.com/api/?name=auth()->user()->name{{asset('public/image/user/'.auth()->user()->photo)}}" alt=""></a>
                 <h2 class="h4 mt-2 mb-0"> {{auth()->user()->name}}</h2><hr>
                 
                 <p class="text-muted"> {{auth()->user()->user_role->role}}</p>
