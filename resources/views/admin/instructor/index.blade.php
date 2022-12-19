@@ -32,9 +32,10 @@
                           <td>{{$instructors->phone}}</td>
                           <td>{{$instructors->address}}</td>
                           <td>{{$instructors->status}}</td>
-                          <td class="centre"  style="display:flex;">
-                          
-                          
+                          <td class="centre"  style="display:flex;"> 
+
+                          <a href="#"><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#changePassword{{$instructors->id}}"><i class="fa fa-lock"></i></button></a>
+                          &nbsp;
                           @if($instructors['status']=='on')                              
                               <a href="{{ url('instructor/offStatus',$instructors->id) }}"><button class="btn btn-warning btn-sm" type="reset">off</button></a>
 
@@ -103,14 +104,44 @@
                                   {{$instructors->count()}}
                               </div>
                                 
-                              
+                            </div>
                               <div class="modal-footer">
                               <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                            </form>
-                            </div>
                             </div>
                           </div>
+                          </div>
                         </div>
+<!-- --------------------------------------- Change Password ---------------------------------------  -->
+ <div class="modal fade" id="changePassword{{$instructors->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal-dialog" role="document">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Password:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <form role="form" action="{{url('instructor/changePassword', $instructors->id)}}" method = "POST">
+        @csrf
+        @method('GET')
+      <div class="modal-body">
+
+        <!-- .form-group -->
+        <div class="form-group">
+          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control"  id="lbl5" name="password" placeholder="Enter Password">
+        </div><!-- /.form-group -->
+
+        
+      </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Save</button>
+    <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+  </div>
+    </form>
+    </div>
+  </div>
+</div>                        
                         @endforeach
                       </tbody>
                     </table><!-- /.table -->

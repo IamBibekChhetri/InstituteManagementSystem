@@ -32,8 +32,7 @@
                           <td>{{$students->status}}</td>
                           <td class="centre" style="display:flex;">
                           <a href="#"><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#changePassword{{$students->id}}"><i class="fa fa-lock"></i></button></a>
-                          &nbsp;
-                          
+                          &nbsp;                          
                           @if($students['status']=='on')                              
                               <a href="{{ url('student/offStatus',$students->id) }}"><button class="btn btn-warning btn-sm" type="reset">off</button></a>
 
@@ -170,16 +169,10 @@
         </button>
       </div>
       
-      <form role="form" action="{{route('student.changePassword', $students->id)}}" method = "Post">
+      <form role="form" action="{{url('student/changePassword', $students->id)}}" method = "POST">
         @csrf
-        @method('PUT')
+        @method('GET')
       <div class="modal-body">
-
-        <div class="form-group">
-          <span>Email</span>
-          <abbr title="Required">*</abbr>
-          <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="email">
-        </div><!-- /.form-group -->
 
         <!-- .form-group -->
         <div class="form-group">

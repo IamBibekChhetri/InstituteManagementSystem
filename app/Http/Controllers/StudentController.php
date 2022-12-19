@@ -78,14 +78,14 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        
+        //
     }
 
     
-    public function resetPassword(Request $request, $id){
+    public function changePassword(Request $request, $id){
         
         $student = Student::find($id);
-        $student->password = bcrypt($request->new_password);
+        $student-> password = bcrypt($request->get('password'));
         $student->save();
         return redirect()->route('student.index')
          ->with([

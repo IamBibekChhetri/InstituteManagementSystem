@@ -51,6 +51,7 @@
                             <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
                         </div><!-- /.form-group -->
                       </div><!-- /.fieldset -->
+                      </div>
                       <div class="form-actions">
                       <div class="card-body"><a href="{{asset('fee')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
                         <button class="btn btn-primary" type="submit">Submit</button>

@@ -45,7 +45,6 @@
                         </div><!-- /.form-group -->
                         
                        
-                        
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                       <div class="card-body"><a href="{{url('fee')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 

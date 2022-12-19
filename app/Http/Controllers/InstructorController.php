@@ -69,10 +69,20 @@ class InstructorController extends Controller
      */
     public function show(Instructor $instructor)
     {
-
-      
+      //
     }
 
+    public function changePassword(Request $request, $id){
+        
+        $instructor = Instructor::find($id);
+        $instructor-> password = bcrypt($request->get('password'));
+        $instructor->save();
+        return redirect()->route('instructor.index')
+         ->with([
+            'icon' => 'success',
+            'message' => 'Password changed successfully'
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

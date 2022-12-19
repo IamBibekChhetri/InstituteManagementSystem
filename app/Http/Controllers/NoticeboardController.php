@@ -53,6 +53,9 @@ class NoticeboardController extends Controller
         }
         $noticeboard -> title = $request->get('title');
         $noticeboard -> priority = $request->get('priority');
+        $noticeboard -> description = $request->get('description');
+        $noticeboard -> start = $request->get('start');
+        $noticeboard -> end = $request->get('end');
         $noticeboard -> status = $request->get('status');
 
         $noticeboard->save();

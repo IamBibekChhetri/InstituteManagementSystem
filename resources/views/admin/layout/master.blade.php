@@ -44,7 +44,7 @@
     </script><!-- END THEME STYLES -->
   </head>
 
-  <body>
+<body>
   @include('admin/layout/header')
   @include('admin/layout/aside')
   <main class="app-main">
@@ -55,13 +55,13 @@
             <!-- .page-inner -->
             <div class="page-inner">
               <!-- .page-title-bar -->
-            @yield('content')           
+              @yield('content')           
             </div><!-- /.page-inner -->
           </div><!-- /.page -->
         </div><!-- /.wrapper -->
         @include('admin/layout/footer')
       </main><!-- /.app-main -->
       @include('admin/layout/script')
-  </body>
+</body>
 
 </html>
