@@ -30,7 +30,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-branch">branch:</label> 
-                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a Branch" data-allow-clear="true">
                             @foreach ($branch as $branchs)
                               <option value="{{$branchs->id}}">{{$branchs->name}}</option>
                             @endforeach
@@ -83,12 +83,6 @@
                             <input type="email" class="form-control" id="fl1" placeholder="Email address" required="" name="email" value="{{$instructor->email}}">
                         </div><!-- /.form-group -->
 
-                        <!-- .form-group -->
-                        <div class="col-md-6 mb-3">
-                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control" id="lbl5" name="password">
-                        </div><!-- /.form-group -->
-
-                        
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                       <div class="card-body"><a href="{{url('instructor')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 

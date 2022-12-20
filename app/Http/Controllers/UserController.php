@@ -99,7 +99,7 @@ class UserController extends Controller
             'name' => ['required' ],
             'address' => ['required' ],
             'phone' => ['required', 'min:10', 'max:10', 'unique:users'],
-            'email' => ['required'],
+            'email' => ['required', 'unique:users'],
         ]);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();

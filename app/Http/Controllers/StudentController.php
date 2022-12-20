@@ -126,7 +126,6 @@ class StudentController extends Controller
             'qualification' => ['required' ],
             'phone' => ['required', 'unique:students'],
         ]);
-
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
         unlink('public/image/student/'.$student->photo);

@@ -12,6 +12,11 @@ class ClassName extends Model
         return $this->belongsTo(Branch::class);
     }
     
+    public function classname()
+    {
+        return $this->hasMany(ClassName::class);
+    }
+    
     protected $fillable = [
         'branch_id' , 'name', 'status'
 

@@ -23,13 +23,13 @@ class ClassRoom extends Model
         return $this->belongsTo(Student::class);
     }
 
-    public function className()
+    public function classname()
     {
         return $this->belongsTo(ClassName::class);
     }
     
     protected $fillable = [
-        'instructor_id', 'batch_id', 'student_id', 'className_id', 'classroom', 'status'
+        'instructor_id', 'batch_id', 'student_id', 'classname_id', 'classroom', 'status'
 
    ];
 }

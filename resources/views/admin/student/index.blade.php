@@ -121,7 +121,7 @@
                                     {{$students->qualification}}
                                 </div>
 
-                            <h5 class="modal-title" id="exampleModalLabel"> Father Information </h5>
+                            <h5 class="modal-title" id="exampleModalLabel"> Parent Information </h5>
                                                              
                               <div class="form-group">
                                     <label> Parents Name: </label><br>

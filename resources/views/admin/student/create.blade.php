@@ -34,7 +34,7 @@
                       <!-- .form-group -->
                       <div class="form-group">
                           <label class="control-label" for="select2-branch">branch:</label> 
-                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a Branch" data-allow-clear="true">
                             @foreach ($branch as $branchs)
                               <option value="{{$branchs->id}}">{{$branchs->name}}</option>
                             @endforeach
@@ -45,7 +45,7 @@
                       <!-- .form-group -->
                       <div class="form-group">
                           <label class="control-label" for="select2-faculty">Faculty:</label> 
-                          <select id="select2-faculty" class="form-control" name="faculty_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-faculty" class="form-control" name="faculty_id" data-toggle="select2" data-placeholder="Select a Faculty" data-allow-clear="true">
                             @foreach ($faculty as $facultys)
                               <option value="{{$facultys->id}}">{{$facultys->name}}</option>
                             @endforeach
@@ -57,7 +57,7 @@
                       <!-- .form-group -->
                       <div class="form-group">
                           <label class="control-label" for="select2-batch">Batch:</label> 
-                          <select id="select2-batch" class="form-control" name="batch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-batch" class="form-control" name="batch_id" data-toggle="select2" data-placeholder="Select a Batch" data-allow-clear="true">
                             @foreach ($batch as $batchs)
                               <option value="{{$batchs->id}}">{{$batchs->name}}</option>
                             @endforeach

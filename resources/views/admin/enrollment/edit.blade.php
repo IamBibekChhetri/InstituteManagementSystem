@@ -31,7 +31,7 @@
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-batch">Course Code:</label> 
                           <abbr title="Required">*</abbr>
-                          <select id="select2-batch" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-batch" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a Course" data-allow-clear="true">
                             @foreach ($course as $courses) 
                             <option value="{{$courses->id}}">{{$courses->code}}</option>
                             @endforeach
@@ -45,7 +45,7 @@
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-course">Course Name:</label> 
                           <abbr title="Required">*</abbr>
-                          <select id="select2-course" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-course" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a Student" data-allow-clear="true">
                             @foreach ($course as $courses)
                             <option value="{{$courses->id}}">{{$courses->name}}</option>
                             @endforeach

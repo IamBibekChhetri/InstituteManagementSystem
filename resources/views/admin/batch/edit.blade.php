@@ -31,7 +31,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-single">Course:</label> 
-                          <select id="select2-single" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-single" class="form-control" name="course_id" data-toggle="select2" data-placeholder="Select a Course" data-allow-clear="true">
                             @foreach ($course as $courses)
                               <option value="{{$courses->id}}">{{$courses->name}}</option>
                             @endforeach
@@ -42,7 +42,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-branch">branch:</label> 
-                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-branch" class="form-control" name="branch_id" data-toggle="select2" data-placeholder="Select a Branch" data-allow-clear="true">
                             @foreach ($branch as $branchs)
                               <option value="{{$branchs->id}}">{{$branchs->name}}</option>
                             @endforeach

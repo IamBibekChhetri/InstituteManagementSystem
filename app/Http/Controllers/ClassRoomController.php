@@ -18,8 +18,9 @@ class ClassRoomController extends Controller
      */
     public function index()
     {
+        $i = 1;
         $classroom = ClassRoom::all();
-        return view('admin.classroom.index',compact('classroom'));
+        return view('admin.classroom.index',compact('classroom','i'));
     }
 
     /**

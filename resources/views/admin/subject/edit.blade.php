@@ -29,7 +29,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-batch">Batch:</label> 
-                          <select id="select2-batch" class="form-control" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-batch" class="form-control" data-toggle="select2" data-placeholder="Select a Batch" data-allow-clear="true">
                             @foreach ($batch as $batchs)
                               <option value="{{$batchs->id}}">{{$batchs->name}}</option>
                             @endforeach
@@ -39,7 +39,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-course">Course:</label> 
-                          <select id="select2-course" class="form-control" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-course" class="form-control" data-toggle="select2" data-placeholder="Select a Course" data-allow-clear="true">
                             @foreach ($course as $courses)
                               <option value="{{$courses->id}}">{{$courses->name}}</option>
                             @endforeach

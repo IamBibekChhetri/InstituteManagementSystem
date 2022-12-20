@@ -39,7 +39,7 @@
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="control-label" for="select2-user_role">User Role:</label> 
-                          <select id="select2-user_role" class="form-control" name="user_role_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                          <select id="select2-user_role" class="form-control" name="user_role_id" data-toggle="select2" data-placeholder="Select a User Role" data-allow-clear="true">
                             @foreach ($user_role as $user_roles)
                               <option value="{{$user_roles->id}}">{{$user_roles->role}}</option>
                             @endforeach

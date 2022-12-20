@@ -127,7 +127,6 @@ class InstructorController extends Controller
             $instructor-> age = $request->get('age');
             $instructor-> phone = $request->get('phone');
             $instructor-> email = $request->get('email');
-            $instructor-> status = $request->get('status');
        
        
             $instructor->save();
