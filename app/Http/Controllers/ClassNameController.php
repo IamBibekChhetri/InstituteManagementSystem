@@ -39,6 +39,13 @@ class ClassNameController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+           
+            'name' => ['required'],
+            'branch_id' => ['required'],
+           
+        ]);
+
         $classname = ClassName::create($request->all());
         return redirect()->route('classname.index')
             ->with('success','Class created successfully.');
@@ -76,6 +83,13 @@ class ClassNameController extends Controller
      */
     public function update(Request $request, ClassName $classname)
     {
+        $validated = $request->validate([
+           
+            'name' => ['required'],
+            'branch_id' => ['required'],
+           
+        ]);
+        
         $classname->update($request->all());
         return redirect()->route('classname.index')
             ->with('success','Class Updated successfully.');

@@ -39,7 +39,7 @@ class AuthorController extends Controller
     {
         $validated = $request->validate([
             
-            'name' => ['required', 'unique:authors'],
+            'name' => ['required'],
         ]);
 
         $author = Author::create($request->all());
@@ -80,7 +80,7 @@ class AuthorController extends Controller
     {
         $validated = $request->validate([
             
-            'name' => ['required', 'unique:authors'],
+            'name' => ['required'],
         ]);
         
         $author->update($request->all());

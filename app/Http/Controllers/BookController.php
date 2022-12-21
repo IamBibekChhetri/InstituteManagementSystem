@@ -51,7 +51,7 @@ class BookController extends Controller
             'course_id' => ['required'],
             'subject_id' => ['required'],
             'author_id' => ['required'],
-            'name' => ['required', 'unique:books'],
+            'name' => ['required'],
             'published' => ['required'],
             'details' => ['required'],
         ]);
@@ -98,7 +98,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $validated = $request->validate([
-            'name' => ['required', 'unique:books'],
+            'name' => ['required'],
             'published' => ['required'],
             'details' => ['required'],
         ]);

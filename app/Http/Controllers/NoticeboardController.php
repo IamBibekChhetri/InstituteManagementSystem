@@ -41,11 +41,11 @@ class NoticeboardController extends Controller
             
             'title' => ['required'],
             'priority' => ['required'],
-            // 'attachment' => ['required'],
+            'attachment' => ['required'],
             'start' => ['required'],
             'end' => ['required'],
         ]);
-        $attachements = array();
+        $store_attachements = array();
         $noticeboard = new Noticeboard();
         foreach($request->attachement as $imageName => $imageItem){
         $image = time().'.'.$imageItem->getClientOriginalExtension();
@@ -105,16 +105,29 @@ class NoticeboardController extends Controller
         ]);
         if ($request->hasFile('attachement')){
             $imageName = time().'.'.$request->file('attachement')->getClientOriginalExtension();
-        unlink('public/image/'.$noticeboard->attachement);
-        move_uploaded_file($request->attachement, 'public/image/'.$imageName); 
+            if($noticeboard->attachment!=""){
+                if (file_exists('public/image/noticeboard/'.$noticeboard->attachment)){
+                    unlink('public/image/noticeboard/'.$noticeboard->attachement);
+                }
+            }       
+        move_uploaded_file($request->attachement, 'public/image/noticeboard/'.$imageName); 
             
             $noticeboard-> attachement = $imageName;
             
-        }
+       
             $noticeboard -> title = $request->get('title');
             $noticeboard -> priority = $request->get('priority');
-            $noticeboard -> status = $request->get('status');
-       
+            $noticeboard -> description = $request->get('description');
+            $noticeboard -> start = $request->get('start');
+            $noticeboard -> end = $request->get('end');
+        }
+        else{
+            $noticeboard -> title = $request->get('title');
+            $noticeboard -> priority = $request->get('priority');
+            $noticeboard -> description = $request->get('description');
+            $noticeboard -> start = $request->get('start');
+            $noticeboard -> end = $request->get('end');
+        }
             $noticeboard->save();
             
             return redirect()->route('noticeboard.index')

@@ -74,12 +74,11 @@ class CompanyInfoController extends Controller
         $validated = $request->validate([
             
             'cname' => ['required'],           
-            'rname' => ['required'],           
-            'photo' => ['required'],           
+            'rname' => ['required'],          
             'address' => ['required'],           
             'phone' => ['required'],           
-            'pan' => ['required'],           
-            'email' => ['required'],           
+            'pan' => 'required|unique:company_infos, pan,'.$company->id,           
+            'email' => 'required|unique:company_infos, email,'.$company->id,           
         ]);
 
         if ($request->hasFile('photo')){

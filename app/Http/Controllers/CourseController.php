@@ -42,7 +42,7 @@ class CourseController extends Controller
             
             'name' => ['required', 'unique:courses'],
             'code' => ['required', 'unique:courses'],
-            'duration' => ['required', 'unique:courses'],
+            'duration' => ['required'],
         ]);
 
         $course = Course::create($request->all());
@@ -83,9 +83,9 @@ class CourseController extends Controller
     {
         $validated = $request->validate([
             
-            'name' => ['required', 'unique:courses'],
-            'code' => ['required', 'unique:courses'],
-            'duration' => ['required', 'unique:courses'],
+            'name' => 'required|unique:courses, name,'.$course->id,
+            'code' => 'required|unique:courses, code,'.$course->id,
+            'duration' => ['required'],
         ]);
 
         $course->update($request->all());

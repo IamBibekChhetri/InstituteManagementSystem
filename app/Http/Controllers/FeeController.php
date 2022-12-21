@@ -85,6 +85,7 @@ class FeeController extends Controller
     {
         $validated = $request->validate([
             'amount' => ['required'],
+            'course_id' => ['required'],
             
         ]);
 

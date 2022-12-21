@@ -255,31 +255,31 @@
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Country</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Country" name="t-country">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Country" name="t_country">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">State</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="t-state">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="t_state">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">City</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="t-city">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="t_city">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Zip Code</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="t-zipcode">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="t_zipcode">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Nationality</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="t-nationality">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="t_nationality">
                         </div><!-- /.form-group -->
 
 
@@ -291,31 +291,31 @@
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Country</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Country Name" name="p-country">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Country Name" name="p_country">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">State</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="p-state">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="p_state">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">City</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="p-city">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="p_city">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Zip Code</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="p-zipcode">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="p_zipcode">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Nationality</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="p-nationality">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="p_nationality">
                         </div><!-- /.form-group -->
 
 

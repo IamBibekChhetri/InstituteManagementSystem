@@ -49,10 +49,26 @@ class UserController extends Controller
             'email' => ['required', 'unique:users'],
         ]);
         
+        $user= new User();
+        if ($request->hasFile('photo')){
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
         move_uploaded_file($request->photo, 'public/image/user/'.$image);
-        $user= User::create($request->all());
         $user->photo = $image;
+        $user-> user_role = $request->get('role');
+        $user->name = $request->get('name');
+        $user->address = $request->get('address');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->phone = $request->get('phone');
+        }
+        else{
+            $user-> user_role = $request->get('role');
+        $user->name = $request->get('name');
+        $user->address = $request->get('address');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->phone = $request->get('phone');
+        }
         $user->save();
         return redirect()->route('user.index')
             ->with('success','User created successfully.');
@@ -66,9 +82,18 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user_role = User_role::all();
+        //
+    }
+    public function changePassword(Request $request, $id){
+        
         $user = User::find($id);
-        return view('admin.user.show',compact('user','user_role'));
+        $user-> password = bcrypt($request->get('password'));
+        $user->save();
+        return redirect()->route('user.index')
+         ->with([
+            'icon' => 'success',
+            'message' => 'Password changed successfully'
+        ]);
     }
 
     /**
@@ -98,23 +123,34 @@ class UserController extends Controller
             'photo' => ['required' ],
             'name' => ['required' ],
             'address' => ['required' ],
-            'phone' => ['required', 'min:10', 'max:10', 'unique:users'],
-            'email' => ['required', 'unique:users'],
+            'phone' => 'required|unique:users, min:10, max:10,phone,'.$user->id,
+            'email' => 'required|unique:users,'.$user->id,
         ]);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/user/'.$user->photo);
+            if($user->attachment!=""){
+                if (file_exists('public/image/user/'.$user->photo)){
+                    unlink('public/image/user/'.$user->photo);
+                }
+            }     
+        
         move_uploaded_file($request->photo, 'public/image/user/'.$imageName); 
             
-            $user-> photo = $imageName;
-            
-        }
+            $user-> photo = $imageName;       
         
         $user-> user_role = $request->get('role');
         $user->name = $request->get('name');
         $user->address = $request->get('address');
         $user->email = $request->get('email');
         $user->phone = $request->get('phone');
+        }
+        else{
+            $user-> user_role = $request->get('role');
+        $user->name = $request->get('name');
+        $user->address = $request->get('address');
+        $user->email = $request->get('email');
+        $user->phone = $request->get('phone');
+        }
         $user->save();
             
             return redirect()->route('user.index')

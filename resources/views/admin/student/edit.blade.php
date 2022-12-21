@@ -70,14 +70,14 @@
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Student Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Student Name" name="name">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Student Name" name="name" value="{{$student->name}}">
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
                         <div class="form-group">
                           <label class="col-form-label" for="selDefault">Gender</label> 
                           <abbr title="Required">*</abbr>
-                          <select class="custom-select" id="selDefault" name="gender">
+                          <select class="custom-select" id="selDefault" name="gender" value="{{$student->gender}}">
                             <option>Male</option>
                             <option>Female</option>
                             <option>Other</option>
@@ -90,14 +90,9 @@
                         <!-- .form-group -->
                         <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Qualification</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Qualification" name="qualification">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Qualification" name="qualification" value="{{$student->qualification}}">
                         </div><!-- /.form-group -->
                         
-                        
-                        <div class="form-group">                            
-                            <span>Is Active:</span> <!-- .switcher-control -->
-                            <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
-                        </div><!-- /.form-group -->
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                          <!-- .form-group -->
@@ -112,19 +107,14 @@
                         <div class="form-group">
                             <span>Email</span>
                             <abbr title="Required">*</abbr>
-                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="email">
-                        </div><!-- /.form-group -->
-
-                        <!-- .form-group -->
-                        <div class="form-group">
-                          <label class="d-flex justify-content-between" for="lbl5"><span>Password</span> <a href="#lbl5" data-toggle="password"><i class="fa fa-eye fa-fw"></i> <span>Show</span></a></label> <input type="password" class="form-control"  id="lbl5" name="password" placeholder="Enter Password">
+                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="email" value="{{$student->email}}">
                         </div><!-- /.form-group -->
 
                         <!-- .form-group -->
                         <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Date Of Birth:</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="date" class="form-control" id="tfDefault"  name="DOB">
+                          <input type="date" class="form-control" id="tfDefault"  name="DOB" value="{{$student->DOB}}">
                         </div><!-- /.form-group -->
 
                          
@@ -132,7 +122,7 @@
                          <div class="form-group">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control"  name="phone" placeholder="Enter Student Phone NO">
+                            <input type="number" class="form-control"  name="phone" placeholder="Enter Student Phone NO" value="{{$student->phone}}">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -148,20 +138,20 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Father Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Father Name" name="father">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Father Name" name="fatherName" value="{{$student->fatherName}}">
                         </div><!-- /.form-group -->
 
                         <div class="form-group">
                             <span>Email</span>
                             <abbr title="Required">*</abbr>
-                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="fatherEmail">
+                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="fatherEmail" value="{{$student->fatherEmail}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control"  name="fatherPhone" placeholder="Enter Father Phone No">
+                            <input type="number" class="form-control"  name="fatherPhone" placeholder="Enter Father Phone No" value="{{$student->fatherPhone}}">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -169,7 +159,7 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Occupation</label> 
                           
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Father Occupation" name="fatherOccupation">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Father Occupation" name="fatherOccupation" value="{{$student->fatherOccupation}}">
                         </div><!-- /.form-group -->
 
 
@@ -178,7 +168,7 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Office Name</label> 
                           
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Office Name" name="fatherOffice">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Office Name" name="fatherOffice" value="{{$student->fatherOffice}}">
                         </div><!-- /.form-group -->
 
 
@@ -187,7 +177,7 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Designation</label> 
                           
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Designation" name="fatherDesignation">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Designation" name="fatherDesignation" value="{{$student->fatherDesignation}}">
                         </div><!-- /.form-group -->
 
 
@@ -200,20 +190,20 @@
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Mother Name</label> 
                           <abbr title="Required">*</abbr>
-                          <input type="text" class="form-control" id="tfDefault" name="mother" placeholder="Enter Mother Name">
+                          <input type="text" class="form-control" id="tfDefault" name="motherName" placeholder="Enter Mother Name" value="{{$student->motherName}}">
                         </div><!-- /.form-group -->
 
                         <div class="form-group">
                             <span>Email</span>
                             <abbr title="Required">*</abbr>
-                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="motherEmail">
+                            <input type="email" class="form-control" id="fl1" placeholder="Enter Email address" required="" name="motherEmail" value="{{$student->motherEmail}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number">
-                            <input type="number" class="form-control"  name="motherPhone" placeholder="Enter Mother Phone No">
+                            <input type="number" class="form-control"  name="motherPhone" placeholder="Enter Mother Phone No" value="{{$student->motherPhone}}">
                           </div>
                         </div><!-- /.form-group -->
                         
@@ -221,7 +211,7 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Occupation</label> 
                           
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Mother Occupation" name="motherOccupation">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Mother Occupation" name="motherOccupation" value="{{$student->motherOccupation}}">
                         </div><!-- /.form-group -->
 
 
@@ -230,7 +220,7 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Office Name</label> 
                           
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Office Name" name="motherOffice">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Office Name" name="motherOffice" value="{{$student->motherOffice}}">
                         </div><!-- /.form-group -->
 
 
@@ -239,7 +229,7 @@
                     <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Designation</label> 
                           
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Designation" name="motherDesignation">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Designation" name="motherDesignation" value="{{$student->motherDesignation}}">
                         </div><!-- /.form-group -->
 
 
@@ -255,26 +245,32 @@
 
                          <!-- .form-group -->
                          <div class="form-group">
+                          <label class="col-form-label" for="tfDefault">Country</label> 
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Country" name="t_country" value="{{$student->t_country}}">
+                        </div><!-- /.form-group -->
+
+                         <!-- .form-group -->
+                         <div class="form-group">
                           <label class="col-form-label" for="tfDefault">State</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="state">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="t_state" value="{{$student->t_state}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">City</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="city">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="t_city" value="{{$student->t_city}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Zip Code</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="zipcode">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="t_zipcode" value="{{$student->t_zipcode}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Nationality</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="nationality">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="t_nationality" value="{{$student->t_nationality}}">
                         </div><!-- /.form-group -->
 
 
@@ -285,26 +281,32 @@
                     
                          <!-- .form-group -->
                          <div class="form-group">
+                          <label class="col-form-label" for="tfDefault">Country</label> 
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Country" name="p_country" value="{{$student->p_country}}">
+                        </div><!-- /.form-group -->
+
+                         <!-- .form-group -->
+                         <div class="form-group">
                           <label class="col-form-label" for="tfDefault">State</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="state">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter State" name="p_state" value="{{$student->p_state}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">City</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="city">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter city" name="p_city" value="{{$student->p_city}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Zip Code</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="zipcode">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Zip Code" name="p_zipcode" value="{{$student->p_zipcode}}">
                         </div><!-- /.form-group -->
 
                          <!-- .form-group -->
                          <div class="form-group">
                           <label class="col-form-label" for="tfDefault">Nationality</label> 
-                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="nationality">
+                          <input type="text" class="form-control" id="tfDefault" placeholder="Enter Nationality" name="p_nationality" value="{{$student->p_nationality}}">
                         </div><!-- /.form-group -->
 
 

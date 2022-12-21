@@ -92,8 +92,8 @@ class BranchController extends Controller
             'name' => ['required'],
             'address' => ['required'],
             'panVat' => ['required'],
-            'phone' => ['required', 'unique:branches'],
-            'email' => ['required', 'unique:branches'],
+            'phone' => 'required|unique:branches, phone,' . $branch->id,
+            'email' => 'required|unique:branches, email,' . $branch->id,
         ]);
         
         $branch->update($request->all());

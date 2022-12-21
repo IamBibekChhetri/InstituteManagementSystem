@@ -72,18 +72,31 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::find($id);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/user/'.auth()->user()->photo);
+            if($user->attachment!=""){
+                if (file_exists('public/image/user/'.auth()->user()->photo)){
+                    unlink('public/image/user/'.auth()->user()->photo);
+                }
+            }       
+       
         move_uploaded_file($request->photo, 'public/image/user'.$imageName); 
-            
+
             $profile-> photo = $imageName;
-            
-        }
+
+        
             $user-> name = $request -> get('name');
             $user-> email = $request -> get('email');
             $user-> address = $request -> get('address');
             $user-> phone = $request -> get('phone');
+        }
+        else{
+            $user-> name = $request -> get('name');
+            $user-> email = $request -> get('email');
+            $user-> address = $request -> get('address');
+            $user-> phone = $request -> get('phone');
+        }
             $user->save();
         return redirect()->route('profile.index')
             ->with('success','Profile Updated successfully.');

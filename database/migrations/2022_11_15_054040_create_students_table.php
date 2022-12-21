@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('qualification');
             $table->string('status');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('email');
             $table->string('password');
             $table->string('DOB');
@@ -42,17 +42,17 @@ return new class extends Migration
             $table->string('motherOffice');
             $table->string('motherDesignation');
 // ------------ Temprorary Address Of Student -----------
-            $table->string('t-country');
-            $table->string('t-state');
-            $table->string('t-city');
-            $table->string('t-zipcode');
-            $table->string('t-nationality');
+            $table->string('t_country');
+            $table->string('t_state');
+            $table->string('t_city');
+            $table->string('t_zipcode');
+            $table->string('t_nationality');
 // --------------- Permanent Address Of Student ----------
-            $table->string('p-country');
-            $table->string('p-state');
-            $table->string('p-city');
-            $table->string('p-zipcode');
-            $table->string('p-nationality');
+            $table->string('p_country');
+            $table->string('p_state');
+            $table->string('p_city');
+            $table->string('p_zipcode');
+            $table->string('p_nationality');
 
             $table->timestamps();
         });

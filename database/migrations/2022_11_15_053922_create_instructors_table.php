@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('address');
             $table->string('phone');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('email');
             $table->string('password');
             $table->integer('branch_id');

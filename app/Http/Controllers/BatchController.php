@@ -44,7 +44,7 @@ class BatchController extends Controller
         $validated = $request->validate([
             'branch_id' => ['required'],
             'course_id' => ['required'],
-            'name' => ['required', 'unique:batches'],
+            'name' => ['required'],
             'code' => ['required', 'unique:batches'],            
         ]);
         $batch = Batch::create($request->all());
@@ -87,8 +87,8 @@ class BatchController extends Controller
     public function update(Request $request, Batch $batch)
     {
         $validated = $request->validate([
-            'name' => ['required', 'unique:batches,name'. $this->route('batches')],
-            'code' => ['required', 'unique:batches,code'. $this->route('batches')],            
+            'name' => 'required|unique:batches,name,'. $batch->id,
+            'code' => 'required|unique:batches,code,'. $batch->id,
         ]);
         
         $batch->update($request->all());

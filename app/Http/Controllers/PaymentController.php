@@ -44,7 +44,7 @@ class PaymentController extends Controller
             'student_id' => ['required' ],
             'payed' => ['required' ],
             'payment' => ['required' ],
-            'transaction' => ['required', 'unique:payments'],
+            'transaction' => ['required'],
         ]);
         
         $payment = Payment::create($request->all());
@@ -88,7 +88,7 @@ class PaymentController extends Controller
         $validated = $request->validate([
             'payed' => ['required' ],
             'payment' => ['required' ],
-            'transaction' => ['required', 'unique:payments'],
+            'transaction' => ['required'],
         ]);
         
         $payment->update($request->all());

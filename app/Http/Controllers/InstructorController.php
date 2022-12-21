@@ -45,17 +45,35 @@ class InstructorController extends Controller
             'name' => ['required', ],
             'age' => ['required', ],
             'address' => ['required', ],
-            'email' => ['required', ],
-            'photo' => ['required', ],
+            'email' => ['required','unique:instructors' ],
             'phone' => ['required', 'unique:instructors'],
-
         ]);
 
-
+        $instructor= new Instructor();
+        if ($request->hasFile('photo')){
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
         move_uploaded_file($request->photo, 'public/image/instructor/'.$image);
-        $instructor= Instructor::create($request->all());
         $instructor->photo = $image;
+
+        $instructor-> branch_id = $request->get('branch_id');
+            $instructor-> name = $request->get('name');
+            $instructor-> address = $request->get('address');
+            $instructor-> age = $request->get('age');
+            $instructor-> phone = $request->get('phone');
+            $instructor-> email = $request->get('email');
+            $instructor-> status = $request->get('status');
+            $instructor-> password = bcrypt($request->get('password'));
+        }
+        else{
+            $instructor-> branch_id = $request->get('branch_id');
+            $instructor-> name = $request->get('name');
+            $instructor-> address = $request->get('address');
+            $instructor-> age = $request->get('age');
+            $instructor-> phone = $request->get('phone');
+            $instructor-> email = $request->get('email');
+            $instructor-> status = $request->get('status');
+            $instructor-> password = bcrypt($request->get('password'));
+        }
         $instructor->save();
         return redirect()->route('instructor.index')
             ->with('success','Instructor created successfully.');
@@ -108,27 +126,38 @@ class InstructorController extends Controller
             'name' => ['required', ],
             'age' => ['required', ],
             'address' => ['required', ],
-            'email' => ['required', ],
-            'phone' => ['required', 'unique:instructors'],
-
+            'email' => 'required|unique:instructors,email,'.$instructor->id, 
+            'phone' => 'required|unique:instructors,phone,'.$instructor->id,
         ]);
+
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-        unlink('public/image/instructor/'.$instructor->photo);
-        move_uploaded_file($request->photo, 'public/image/instructor/'.$imageName); 
+            if($instructor->photo!=""){
+            if (file_exists('public/image/instructor/'.$instructor->photo)){
+            unlink('public/image/instructor/'.$instructor->photo);
+                }
+            }
+             move_uploaded_file($request->photo, 'public/image/instructor/'.$imageName); 
             
-            $instructor-> photo = $imageName;
-            
-        }
-         
+            $instructor-> photo = $imageName;            
+        
+                 
             $instructor-> branch_id = $request->get('branch_id');
             $instructor-> name = $request->get('name');
             $instructor-> address = $request->get('address');
             $instructor-> age = $request->get('age');
             $instructor-> phone = $request->get('phone');
             $instructor-> email = $request->get('email');
-       
-       
+        }
+        else{
+                  
+            $instructor-> branch_id = $request->get('branch_id');
+            $instructor-> name = $request->get('name');
+            $instructor-> address = $request->get('address');
+            $instructor-> age = $request->get('age');
+            $instructor-> phone = $request->get('phone');
+            $instructor-> email = $request->get('email');
+        }
             $instructor->save();
             
             return redirect()->route('instructor.index')

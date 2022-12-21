@@ -34,32 +34,34 @@ use App\Http\Controllers\FacultyController;
 */
 
 Route::redirect('/', destination: 'login');
-
-Route::resource('author', AuthorController::class)->middleware('auth');
-Route::resource('batch', BatchController::class)->middleware('auth');
-Route::resource('book', BookController::class)->middleware('auth');
-Route::resource('course', CourseController::class)->middleware('auth');
-Route::resource('fee', FeeController::class)->middleware('auth');
-Route::resource('instructor', InstructorController::class)->middleware('auth');
+Route::middleware('auth')->group(function(){
+Route::resource('author', AuthorController::class);
+Route::resource('batch', BatchController::class);
+Route::resource('book', BookController::class);
+Route::resource('course', CourseController::class);
+Route::resource('fee', FeeController::class);
+Route::resource('instructor', InstructorController::class);
 Route::get('instructor/changePassword/{id}',[App\Http\Controllers\InstructorController::class, 'changePassword']);
-Route::resource('noticeboard', NoticeboardController::class)->middleware('auth');
-Route::resource('payment', PaymentController::class)->middleware('auth');
-Route::resource('student', StudentController::class)->middleware('auth');
+Route::resource('noticeboard', NoticeboardController::class);
+Route::resource('payment', PaymentController::class);
+Route::resource('student', StudentController::class);
 Route::get('student/changePassword/{id}',[App\Http\Controllers\StudentController::class, 'changePassword']);
-Route::resource('subject', SubjectController::class)->middleware('auth');
-Route::resource('dashboard', DashboardController::class)->middleware('auth');
-Route::resource('profile', ProfileController::class)->middleware('auth');
-Route::resource('user_role', UserRoleController::class)->middleware('auth');
-Route::resource('user', UserController::class)->middleware('auth');
-Route::resource('companyInfo', CompanyInfoController::class)->middleware('auth');
-Route::resource('enrollment', EnrollmentController::class)->middleware('auth');
-Route::resource('branch', BranchController::class)->middleware('auth');
-Route::resource('classname', ClassNameController::class)->middleware('auth');
-Route::resource('classroom', ClassRoomController::class)->middleware('auth');
-Route::resource('faculty', FacultyController::class)->middleware('auth');
+Route::resource('subject', SubjectController::class);
+Route::resource('dashboard', DashboardController::class);
+Route::resource('profile', ProfileController::class);
+Route::get('profile/changeImage/{id}',[App\Http\Controllers\ProfileController::class, 'changeImage']);
+Route::resource('user_role', UserRoleController::class);
+Route::resource('user', UserController::class);
+Route::get('user/changePassword/{id}',[App\Http\Controllers\UserController::class, 'changePassword']);
+Route::resource('companyInfo', CompanyInfoController::class);
+Route::get('companyInfo/changeImage/{id}',[App\Http\Controllers\CompanyInfoController::class, 'changeImage']);
+Route::resource('enrollment', EnrollmentController::class);
+Route::resource('branch', BranchController::class);
+Route::resource('classname', ClassNameController::class);
+Route::resource('classroom', ClassRoomController::class);
+Route::resource('faculty', FacultyController::class);
 
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // ------------- Status active or deactive ----------------------- 
@@ -122,8 +124,6 @@ Route::get('branch/onStatus/{id}',[App\Http\Controllers\BranchController::class,
 Route::get('branch/offStatus/{id}',[App\Http\Controllers\BranchController::class, 'offStatus']);
 
 
-
-
 // ==================================== Faculty Status Update Route ====================
 Route::get('faculty/onStatus/{id}',[App\Http\Controllers\FacultyController::class, 'onStatus']);
 Route::get('faculty/offStatus/{id}',[App\Http\Controllers\FacultyController::class, 'offStatus']);
@@ -144,3 +144,6 @@ Route::get('classroom/offStatus/{id}',[App\Http\Controllers\ClassRoomController:
 
 
 
+});
+
+Auth::routes();

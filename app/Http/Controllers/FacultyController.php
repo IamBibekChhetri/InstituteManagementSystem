@@ -39,6 +39,12 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([            
+            
+            'branch_id' => ['required'],
+            'name' => ['required'],
+        ]);
+
         $faculty = Faculty::create($request->all());
         return redirect()->route('faculty.index')
             ->with('success','Faculty created successfully.');
@@ -76,6 +82,12 @@ class FacultyController extends Controller
      */
     public function update(Request $request, Faculty $faculty)
     {
+        $validated = $request->validate([            
+            
+            'branch_id' => ['required'],
+            'name' => ['required'],
+        ]);
+
         $faculty->update($request->all());
         return redirect()->route('faculty.index')
             ->with('success','Faculty Updated successfully.');

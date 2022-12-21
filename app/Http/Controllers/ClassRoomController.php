@@ -30,6 +30,16 @@ class ClassRoomController extends Controller
      */
     public function create()
     {
+        $validated = $request->validate([
+           
+            'classroom' => ['required'],
+            'instructor_id' => ['required'],
+            'student_id' => ['required'],
+            'classname_id' => ['required'],
+            'batch_id' => ['required'],
+           
+        ]);
+
         $batch =  Batch::whereStatus('on')->get();
         $instructor =  Instructor::whereStatus('on')->get();
         $student =  Student::whereStatus('on')->get();
@@ -85,6 +95,16 @@ class ClassRoomController extends Controller
      */
     public function update(Request $request, ClassRoom $classroom)
     {
+        $validated = $request->validate([
+           
+            'classroom' => ['required'],
+            'instructor_id' => ['required'],
+            'student_id' => ['required'],
+            'classname_id' => ['required'],
+            'batch_id' => ['required'],
+           
+        ]);
+        
         $classroom->update($request->all());
         return redirect()->route('classroom.index')
             ->with('success','Class Room Updated successfully.');
