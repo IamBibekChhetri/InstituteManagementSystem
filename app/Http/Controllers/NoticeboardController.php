@@ -41,7 +41,6 @@ class NoticeboardController extends Controller
             
             'title' => ['required'],
             'priority' => ['required'],
-            'attachment' => ['required'],
             'start' => ['required'],
             'end' => ['required'],
         ]);
@@ -50,10 +49,10 @@ class NoticeboardController extends Controller
         foreach($request->attachement as $imageName => $imageItem){
         $image = time().'.'.$imageItem->getClientOriginalExtension();
         sleep(1);
-        array_push($attachements, $image);
+        array_push($store_attachements, $image);
         move_uploaded_file($imageItem, 'public/image/noticeboard/'.$image);
     }
-        $noticeboard->attachement = $attachements;
+        $noticeboard->attachement = $store_attachements;
         $noticeboard -> title = $request->get('title');
         $noticeboard -> priority = $request->get('priority');
         $noticeboard -> description = $request->get('description');

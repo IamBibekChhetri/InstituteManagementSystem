@@ -127,7 +127,7 @@ class InstructorController extends Controller
             'age' => ['required', ],
             'address' => ['required', ],
             'email' => 'required|unique:instructors,email,'.$instructor->id, 
-            'phone' => 'required|unique:instructors,phone,'.$instructor->id,
+            'phone' => 'required|min:10|max:15|unique:instructors,phone,'.$instructor->id,
         ]);
 
         if ($request->hasFile('photo')){

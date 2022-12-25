@@ -55,7 +55,7 @@
                         <div class="col-md-6 mb-3">
                           <label for="tf2">Phone No:</label> <abbr title="Required">*</abbr>
                           <div class="custom-number"> 
-                            <input type="number" class="form-control"  name="phone" placeholder="Enter Branch Phone Number" >
+                            <input type="number" class="form-control" minlength="10" maxlength="15" name="phone" placeholder="Enter Branch Phone Number" >
                           </div>
                         </div><!-- /.form-group -->
 

@@ -21,7 +21,16 @@
         
         <!-- .btn-account -->
         <div class="dropdown d-none d-md-flex">
-          <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md"><img src="{{asset('public/image/user/'.auth()->user()->photo)}}" alt=""></span> <span class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name"> {{auth()->user()->name}}</span> <span class="account-description">{{auth()->user()->user_role->role}}</span></span></button> <!-- .dropdown-menu -->
+          <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md">
+            @if(auth()->user()->photo !== "")
+                  @if (file_exists('public/image/user/'.auth()->user()->photo))
+                  <img src="{{asset('public/image/user/'.auth()->user()->photo)}}" alt=""> 
+                  @else
+                  <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}" alt="">
+                  @endif
+                  @else
+                  <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}" alt="">
+                  @endif</span> <span class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name"> {{auth()->user()->name}}</span> <span class="account-description">{{auth()->user()->user_role->role}}</span></span></button> <!-- .dropdown-menu -->
           <div class="dropdown-menu">
             <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
             <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>

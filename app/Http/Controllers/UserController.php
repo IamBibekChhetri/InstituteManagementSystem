@@ -41,7 +41,6 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             
-            'photo' => ['required' ],
             'user_role_id' => ['required' ],
             'name' => ['required' ],
             'address' => ['required' ],
@@ -54,7 +53,7 @@ class UserController extends Controller
         $image = time().'.'.$request->file('photo')->getClientOriginalExtension();
         move_uploaded_file($request->photo, 'public/image/user/'.$image);
         $user->photo = $image;
-        $user-> user_role = $request->get('role');
+        $user-> user_role_id = $request->get('user_role_id');
         $user->name = $request->get('name');
         $user->address = $request->get('address');
         $user->email = $request->get('email');
@@ -62,7 +61,7 @@ class UserController extends Controller
         $user->phone = $request->get('phone');
         }
         else{
-            $user-> user_role = $request->get('role');
+            $user-> user_role_id = $request->get('user_role_id');
         $user->name = $request->get('name');
         $user->address = $request->get('address');
         $user->email = $request->get('email');
@@ -120,11 +119,10 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             
-            'photo' => ['required' ],
             'name' => ['required' ],
             'address' => ['required' ],
-            'phone' => 'required|unique:users, min:10, max:10,phone,'.$user->id,
-            'email' => 'required|unique:users,'.$user->id,
+            'phone' => 'required|min:10|max:15|unique:users,phone,'.$user->id,
+            'email' => 'required|unique:users,email,'.$user->id,
         ]);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
@@ -138,14 +136,14 @@ class UserController extends Controller
             
             $user-> photo = $imageName;       
         
-        $user-> user_role = $request->get('role');
+        $user-> user_role_id = $request->get('user_role_id');
         $user->name = $request->get('name');
         $user->address = $request->get('address');
         $user->email = $request->get('email');
         $user->phone = $request->get('phone');
         }
         else{
-            $user-> user_role = $request->get('role');
+        $user-> user_role_id = $request->get('user_role_id');
         $user->name = $request->get('name');
         $user->address = $request->get('address');
         $user->email = $request->get('email');

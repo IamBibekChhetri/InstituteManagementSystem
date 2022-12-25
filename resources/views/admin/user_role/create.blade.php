@@ -24,7 +24,7 @@
                                     </ul>
                                 </div>
                             @endif
-</div>
+                      </div>
                         <!-- .form-group -->
                         <div class="col-md-6 mb-3">
                           <label class="col-form-label" for="tfDefault">User Role</label> 
@@ -33,11 +33,12 @@
                         </div><!-- /.form-group -->
 
                         
-
+                        <div class="col-md-12 mb-3">
                         <div class="form-group">                            
                             <span>Is Active:</span> <!-- .switcher-control -->
                             <label class="switcher-control switcher-control-lg"><input type="checkbox" class="switcher-input" name="status" checked> <span class="switcher-indicator"></span> <span class="switcher-label-on">ON</span> <span class="switcher-label-off">OFF</span></label>                            
                         </div><!-- /.form-group -->
+                      </div>
                       </div><!-- /.fieldset -->
                       <div class="form-actions">
                       <div class="card-body"><a href="{{asset('user_role')}}"><button class="btn btn-success "  style="float:right;">back</button></a> 
@@ -48,7 +49,7 @@
                     </form><!-- /.form -->
                   
                 </div>
-</div>
+            </div>
 
 
 @endsection 

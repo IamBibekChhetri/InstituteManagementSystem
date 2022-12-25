@@ -75,15 +75,15 @@ class ProfileController extends Controller
         $user = User::find($id);
         if ($request->hasFile('photo')){
             $imageName = time().'.'.$request->file('photo')->getClientOriginalExtension();
-            if($user->attachment!=""){
+            if(auth()->user()->photo!=""){
                 if (file_exists('public/image/user/'.auth()->user()->photo)){
                     unlink('public/image/user/'.auth()->user()->photo);
                 }
             }       
        
-        move_uploaded_file($request->photo, 'public/image/user'.$imageName); 
+        move_uploaded_file($request->photo, 'public/image/user/'.$imageName); 
 
-            $profile-> photo = $imageName;
+       $user->photo = $imageName;
 
         
             $user-> name = $request -> get('name');
